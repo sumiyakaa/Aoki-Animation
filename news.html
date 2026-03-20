@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お知らせ — Aoki Animation</title>
+  <meta name="description" content="Aoki Animationからのお知らせ。作品情報、イベント、会社からのご案内をお届けします。">
+  <meta name="theme-color" content="#6C63FF">
+  <meta property="og:title" content="お知らせ — Aoki Animation">
+  <meta property="og:description" content="作品情報・イベント・お知らせ一覧">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
+
+  <header class="header is-scrolled" role="banner">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Aoki Animation トップページ"><img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48"></a>
+      <nav class="nav" role="navigation" aria-label="グローバルナビゲーション">
+        <ul class="nav__list">
+          <li><a href="works.html" class="nav__link">Works</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="service.html" class="nav__link">Service</a></li>
+          <li><a href="news.html" class="nav__link is-active">News</a></li>
+          <li><a href="recruit.html" class="nav__link">Recruit</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">お問い合わせ</a>
+      </nav>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false"><span class="hamburger__line"></span><span class="hamburger__line"></span><span class="hamburger__line"></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" aria-hidden="true">
+    <a href="index.html" class="mobile-drawer__link">Home</a><a href="works.html" class="mobile-drawer__link">Works</a><a href="about.html" class="mobile-drawer__link">About</a><a href="service.html" class="mobile-drawer__link">Service</a><a href="news.html" class="mobile-drawer__link">News</a><a href="recruit.html" class="mobile-drawer__link">Recruit</a><a href="contact.html" class="mobile-drawer__link">Contact</a>
+  </div>
+
+  <main id="main">
+    <section class="page-hero">
+      <span class="page-hero__en">News</span>
+      <h1 class="page-hero__title">お知らせ</h1>
+    </section>
+
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="index.html">TOP</a><span class="breadcrumb__sep">&gt;</span><span>お知らせ</span>
+      </nav>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <!-- Filter -->
+        <div class="filter-bar reveal">
+          <button class="filter-btn is-active" data-news-filter="all">すべて</button>
+          <button class="filter-btn" data-news-filter="work">作品情報</button>
+          <button class="filter-btn" data-news-filter="event">イベント</button>
+          <button class="filter-btn" data-news-filter="info">お知らせ</button>
+        </div>
+
+        <!-- News List -->
+        <div class="news-list reveal" data-filter-target="news">
+          <div class="news-item" data-category="work">
+            <span class="news-item__date">2025.10.01</span>
+            <span class="news-item__badge news-item__badge--work">作品情報</span>
+            <span class="news-item__title">TV「蒼穹のリリィ」第2クール2026年1月放送決定</span>
+          </div>
+          <div class="news-item" data-category="event">
+            <span class="news-item__date">2025.09.15</span>
+            <span class="news-item__badge news-item__badge--event">イベント</span>
+            <span class="news-item__title">Aoki Animation EXPO 2025 開催決定</span>
+          </div>
+          <div class="news-item" data-category="work">
+            <span class="news-item__date">2025.08.20</span>
+            <span class="news-item__badge news-item__badge--work">作品情報</span>
+            <span class="news-item__title">劇場版「永遠のセレナーデ」興行収入10億円突破</span>
+          </div>
+          <div class="news-item" data-category="info">
+            <span class="news-item__date">2025.07.01</span>
+            <span class="news-item__badge news-item__badge--info">お知らせ</span>
+            <span class="news-item__title">公式サイトリニューアル</span>
+          </div>
+          <div class="news-item" data-category="work">
+            <span class="news-item__date">2025.06.15</span>
+            <span class="news-item__badge news-item__badge--work">作品情報</span>
+            <span class="news-item__title">新作オリジナルアニメ企画始動。ティザービジュアル公開。</span>
+          </div>
+          <div class="news-item" data-category="event">
+            <span class="news-item__date">2025.05.10</span>
+            <span class="news-item__badge news-item__badge--event">イベント</span>
+            <span class="news-item__title">AnimeJapan 2025 出展レポート</span>
+          </div>
+          <div class="news-item" data-category="info">
+            <span class="news-item__date">2024.12.20</span>
+            <span class="news-item__badge news-item__badge--info">お知らせ</span>
+            <span class="news-item__title">年末年始休業のお知らせ</span>
+          </div>
+          <div class="news-item" data-category="work">
+            <span class="news-item__date">2024.10.01</span>
+            <span class="news-item__badge news-item__badge--work">作品情報</span>
+            <span class="news-item__title">TV「星屑カルテット」Blu-ray BOX 発売決定</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div><a href="index.html" class="footer__logo"><img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48"></a></div>
+        <nav class="footer__nav" aria-label="フッターナビゲーション"><a href="works.html">Works</a><a href="about.html">About</a><a href="service.html">Service</a><a href="news.html">News</a><a href="recruit.html">Recruit</a><a href="contact.html">Contact</a></nav>
+      </div>
+      <div class="footer__info"><p>株式会社 Aoki Animation</p><p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p><p>設立: 2018年4月 | 代表: 青木 翔太</p></div>
+      <div class="footer__bottom"><p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p><div class="footer__sns"><a href="#" class="sns-icon" aria-label="X (Twitter)">X</a><a href="#" class="sns-icon" aria-label="Instagram">Ig</a><a href="#" class="sns-icon" aria-label="YouTube">Yt</a></div></div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

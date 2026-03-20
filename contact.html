@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ — Aoki Animation</title>
+  <meta name="description" content="Aoki Animationへのお問い合わせ。制作のご依頼、取材、採用に関するご連絡はこちらから。">
+  <meta name="theme-color" content="#6C63FF">
+  <meta property="og:title" content="お問い合わせ — Aoki Animation">
+  <meta property="og:description" content="制作のご依頼・取材・採用のお問い合わせ">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
+
+  <header class="header is-scrolled" role="banner">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo" aria-label="Aoki Animation トップページ"><img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48"></a>
+      <nav class="nav" role="navigation" aria-label="グローバルナビゲーション">
+        <ul class="nav__list">
+          <li><a href="works.html" class="nav__link">Works</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="service.html" class="nav__link">Service</a></li>
+          <li><a href="news.html" class="nav__link">News</a></li>
+          <li><a href="recruit.html" class="nav__link">Recruit</a></li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">お問い合わせ</a>
+      </nav>
+      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false"><span class="hamburger__line"></span><span class="hamburger__line"></span><span class="hamburger__line"></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" aria-hidden="true">
+    <a href="index.html" class="mobile-drawer__link">Home</a><a href="works.html" class="mobile-drawer__link">Works</a><a href="about.html" class="mobile-drawer__link">About</a><a href="service.html" class="mobile-drawer__link">Service</a><a href="news.html" class="mobile-drawer__link">News</a><a href="recruit.html" class="mobile-drawer__link">Recruit</a><a href="contact.html" class="mobile-drawer__link">Contact</a>
+  </div>
+
+  <main id="main">
+    <section class="page-hero">
+      <span class="page-hero__en">Contact</span>
+      <h1 class="page-hero__title">お問い合わせ</h1>
+    </section>
+
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="index.html">TOP</a><span class="breadcrumb__sep">&gt;</span><span>お問い合わせ</span>
+      </nav>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-layout reveal">
+          <!-- Form -->
+          <div>
+            <form id="contact-form" class="contact-form-card" action="https://formspree.io/f/xxxxxx" method="POST">
+              <!-- Input Step -->
+              <div class="input-step">
+                <div class="form-group">
+                  <label>お問い合わせ種別</label>
+                  <div class="radio-group">
+                    <label><input type="radio" name="type" value="制作のご依頼" checked> 制作のご依頼</label>
+                    <label><input type="radio" name="type" value="取材・メディア"> 取材・メディア</label>
+                    <label><input type="radio" name="type" value="採用"> 採用</label>
+                    <label><input type="radio" name="type" value="その他"> その他</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="company">会社名 <span style="color:var(--color-text-muted);font-size:0.75rem;">（任意）</span></label>
+                  <input type="text" id="company" name="company" placeholder="例: 株式会社〇〇">
+                </div>
+
+                <div class="form-group">
+                  <label for="name">お名前 <span class="required">*必須</span></label>
+                  <input type="text" id="name" name="name" required placeholder="例: 山田 太郎">
+                  <p class="form-error" aria-live="polite"></p>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">メールアドレス <span class="required">*必須</span></label>
+                  <input type="email" id="email" name="email" required placeholder="例: info@example.com">
+                  <p class="form-error" aria-live="polite"></p>
+                </div>
+
+                <div class="form-group">
+                  <label for="tel">電話番号 <span style="color:var(--color-text-muted);font-size:0.75rem;">（任意）</span></label>
+                  <input type="tel" id="tel" name="tel" placeholder="例: 03-1234-5678">
+                </div>
+
+                <div class="form-group">
+                  <label for="message">メッセージ <span class="required">*必須</span></label>
+                  <textarea id="message" name="message" rows="6" required placeholder="お問い合わせ内容をご記入ください"></textarea>
+                  <p class="form-error" aria-live="polite"></p>
+                </div>
+
+                <!-- Honeypot -->
+                <div class="hp-field" aria-hidden="true">
+                  <label for="website">Website</label>
+                  <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
+                </div>
+
+                <button type="button" class="btn btn--primary" data-action="confirm" style="width:100%;">入力内容を確認する</button>
+              </div>
+
+              <!-- Confirm Step -->
+              <div class="confirm-step">
+                <h3 style="font-size:1.125rem;font-weight:700;margin-bottom:20px;">入力内容の確認</h3>
+                <table class="confirm-table">
+                  <tbody></tbody>
+                </table>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;">
+                  <button type="button" class="btn btn--secondary" data-action="back">修正する</button>
+                  <button type="button" class="btn btn--primary" data-action="submit">送信する</button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Success -->
+            <div class="form-success">
+              <div class="form-success__icon" aria-hidden="true">&#10003;</div>
+              <h3 class="form-success__title">送信が完了しました</h3>
+              <p class="form-success__text">お問い合わせありがとうございます。<br>3営業日以内にご連絡いたします。</p>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="contact-sidebar">
+            <div class="contact-sidebar__block">
+              <h3>所在地</h3>
+              <p>〒167-0042<br>東京都杉並区西荻北3-12-8<br>AOKIビル 4F</p>
+            </div>
+            <div class="contact-sidebar__block">
+              <h3>メール</h3>
+              <p>contact@aoki-animation.co.jp</p>
+            </div>
+            <div class="contact-sidebar__block">
+              <h3>電話</h3>
+              <p>03-XXXX-XXXX</p>
+              <p style="font-size:0.8125rem;color:var(--color-text-muted);">平日 10:00〜18:00</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div><a href="index.html" class="footer__logo"><img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48"></a></div>
+        <nav class="footer__nav" aria-label="フッターナビゲーション"><a href="works.html">Works</a><a href="about.html">About</a><a href="service.html">Service</a><a href="news.html">News</a><a href="recruit.html">Recruit</a><a href="contact.html">Contact</a></nav>
+      </div>
+      <div class="footer__info"><p>株式会社 Aoki Animation</p><p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p><p>設立: 2018年4月 | 代表: 青木 翔太</p></div>
+      <div class="footer__bottom"><p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p><div class="footer__sns"><a href="#" class="sns-icon" aria-label="X (Twitter)">X</a><a href="#" class="sns-icon" aria-label="Instagram">Ig</a><a href="#" class="sns-icon" aria-label="YouTube">Yt</a></div></div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
