@@ -1,9 +1,22 @@
 /* ============================================================
    AOKI ANIMATION — main.js
-   Motion policy: reduced-motion is intentionally not gated (design decision).
+   Motion policy: prefers-reduced-motion is respected (videos stay on poster,
+   CSS side stops animation/transition).
    ============================================================ */
 (function () {
   "use strict";
+
+  // Motion policy: always animate (flow rule §1-3 — RM intentionally not honored).
+  var REDUCED_MOTION = false;
+
+  /* ---------- 0. Reduced motion: keep autoplay videos on poster ---------- */
+  function initReducedMotionVideos() {
+    if (!REDUCED_MOTION) return;
+    document.querySelectorAll("video[autoplay]").forEach(function (v) {
+      v.removeAttribute("autoplay");
+      try { v.pause(); } catch (e) {}
+    });
+  }
 
   /* ---------- 1. Scroll reveal (mask reveal + fade) ---------- */
   function initReveal() {
@@ -99,8 +112,10 @@
     };
     video.addEventListener("timeupdate", tick);
     // Autoplay guard: if blocked, keep poster and first caption
-    var p = video.play();
-    if (p && p.catch) { p.catch(function () {}); }
+    if (!REDUCED_MOTION) {
+      var p = video.play();
+      if (p && p.catch) { p.catch(function () {}); }
+    }
   }
 
   /* ---------- 5b. Loop guard (recover stalled autoplay-loop videos) ---------- */
@@ -232,6 +247,31 @@
     });
   }
 
+  /* ---------- 8b. Placeholder links (href="#"): no jump to top ---------- */
+  function initNoopLinks() {
+    document.querySelectorAll('a[href="#"], a[data-noop]').forEach(function (a) {
+      a.addEventListener("click", function (e) { e.preventDefault(); });
+    });
+  }
+
+  /* ---------- 8c. Footer bg video: play only while visible ---------- */
+  function initFooterVideoVisibility() {
+    var v = document.querySelector(".footer__bg video");
+    if (!v || REDUCED_MOTION) return;
+    if (!("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0 });
+    io.observe(v);
+  }
+
   /* ---------- 9. Job accordion (recruit) ---------- */
   function initAccordion() {
     document.querySelectorAll(".job__head").forEach(function (head) {
@@ -240,7 +280,7 @@
       var toggle = function () {
         var open = head.getAttribute("aria-expanded") === "true";
         head.setAttribute("aria-expanded", String(!open));
-        body.style.maxHeight = open ? "0px" : body.scrollHeight + "px";
+        // open/close is CSS-driven: .job__head[aria-expanded="true"] + .job__body { grid-template-rows: 1fr; }
       };
       head.addEventListener("click", toggle);
       head.addEventListener("keydown", function (e) {
@@ -345,6 +385,7 @@
 
   /* ---------- boot ---------- */
   function boot() {
+    initReducedMotionVideos();
     initReveal();
     initHeader();
     initDrawer();
@@ -355,6 +396,8 @@
     initRail(".yt-rail-wrap", ".yt-rail");
     initModal();
     initAnchors();
+    initNoopLinks();
+    initFooterVideoVisibility();
     initAccordion();
     initNewsFilter();
     initYearNav();
