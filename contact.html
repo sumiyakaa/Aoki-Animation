@@ -2,65 +2,75 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>お問い合わせ — Aoki Animation</title>
   <meta name="description" content="Aoki Animationへのお問い合わせ。制作のご依頼、取材、採用に関するご連絡はこちらから。">
-  <meta name="theme-color" content="#6C63FF">
+  <meta name="theme-color" content="#000000">
   <meta property="og:title" content="お問い合わせ — Aoki Animation">
   <meta property="og:description" content="制作のご依頼・取材・採用のお問い合わせ">
   <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;1,700&family=Jost:wght@300;400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260730a">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
   <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
 
-  <header class="header is-scrolled" role="banner">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo" aria-label="Aoki Animation トップページ"><img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48"></a>
-      <nav class="nav" role="navigation" aria-label="グローバルナビゲーション">
-        <ul class="nav__list">
-          <li><a href="works.html" class="nav__link">Works</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="service.html" class="nav__link">Service</a></li>
-          <li><a href="news.html" class="nav__link">News</a></li>
-          <li><a href="recruit.html" class="nav__link">Recruit</a></li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">お問い合わせ</a>
-      </nav>
-      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false"><span class="hamburger__line"></span><span class="hamburger__line"></span><span class="hamburger__line"></span></button>
-    </div>
+  <header class="header is-solid" role="banner">
+    <a href="index.html" class="logo-type" aria-label="Aoki Animation トップページ">AOKI ANIMATION</a>
+    <nav class="gnav" role="navigation" aria-label="グローバルナビゲーション">
+      <ul class="gnav__list">
+        <li><a href="news.html" class="gnav__link">NEWS</a></li>
+        <li><a href="works.html" class="gnav__link">WORKS</a></li>
+        <li><a href="about.html" class="gnav__link">ABOUT</a></li>
+        <li><a href="service.html" class="gnav__link">SERVICE</a></li>
+        <li><a href="recruit.html" class="gnav__link">RECRUIT</a></li>
+        <li><a href="contact.html" class="gnav__link" aria-current="page">CONTACT</a></li>
+      </ul>
+      <span class="lang" aria-hidden="true"><span class="is-on">JP</span><span>EN</span></span>
+    </nav>
+    <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <div class="mobile-drawer" aria-hidden="true">
-    <a href="index.html" class="mobile-drawer__link">Home</a><a href="works.html" class="mobile-drawer__link">Works</a><a href="about.html" class="mobile-drawer__link">About</a><a href="service.html" class="mobile-drawer__link">Service</a><a href="news.html" class="mobile-drawer__link">News</a><a href="recruit.html" class="mobile-drawer__link">Recruit</a><a href="contact.html" class="mobile-drawer__link">Contact</a>
+  <div class="drawer" aria-hidden="true">
+    <a href="index.html">HOME<small>ホーム</small></a>
+    <a href="news.html">NEWS<small>お知らせ</small></a>
+    <a href="works.html">WORKS<small>制作実績</small></a>
+    <a href="about.html">ABOUT<small>スタジオ紹介</small></a>
+    <a href="service.html">SERVICE<small>事業内容</small></a>
+    <a href="recruit.html">RECRUIT<small>採用情報</small></a>
+    <a href="contact.html">CONTACT<small>お問い合わせ</small></a>
   </div>
 
-  <main id="main">
-    <section class="page-hero">
-      <span class="page-hero__en">Contact</span>
-      <h1 class="page-hero__title">お問い合わせ</h1>
-    </section>
+  <div class="seekbar" aria-hidden="true"><i></i></div>
 
-    <div class="container">
+  <main id="main" class="page-main">
+    <h1 class="sec-title"><span class="ani"><span>CONTACT</span></span></h1>
+
+    <div class="inner-900">
       <nav class="breadcrumb" aria-label="パンくずリスト">
-        <a href="index.html">TOP</a><span class="breadcrumb__sep">&gt;</span><span>お問い合わせ</span>
+        <a href="index.html">TOP</a><span aria-hidden="true">/</span><span>お問い合わせ</span>
       </nav>
     </div>
 
-    <section class="section">
-      <div class="container">
-        <div class="contact-layout reveal">
-          <!-- Form -->
-          <div>
-            <form id="contact-form" class="contact-form-card" action="https://formspree.io/f/xxxxxx" method="POST">
-              <!-- Input Step -->
+    <section class="sec" style="padding-top:100px;">
+      <div class="inner inner-1100">
+        <p class="contact-note rv">制作のご依頼、取材、採用に関するお問い合わせなど、お気軽にご連絡ください。</p>
+
+        <div class="contact-grid">
+          <div class="rv">
+            <!-- Demo form: no real transmission (pseudo submit) -->
+            <form id="contact-form" class="form" action="#" method="post">
               <div class="input-step">
                 <div class="form-group">
                   <label>お問い合わせ種別</label>
-                  <div class="radio-group">
+                  <div class="radio-row">
                     <label><input type="radio" name="type" value="制作のご依頼" checked> 制作のご依頼</label>
                     <label><input type="radio" name="type" value="取材・メディア"> 取材・メディア</label>
                     <label><input type="radio" name="type" value="採用"> 採用</label>
@@ -69,29 +79,29 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="company">会社名 <span style="color:var(--color-text-muted);font-size:0.75rem;">（任意）</span></label>
+                  <label for="company">会社名 <span class="opt">（任意）</span></label>
                   <input type="text" id="company" name="company" placeholder="例: 株式会社〇〇">
                 </div>
 
                 <div class="form-group">
-                  <label for="name">お名前 <span class="required">*必須</span></label>
+                  <label for="name">お名前 <span class="req">*必須</span></label>
                   <input type="text" id="name" name="name" required placeholder="例: 山田 太郎">
                   <p class="form-error" aria-live="polite"></p>
                 </div>
 
                 <div class="form-group">
-                  <label for="email">メールアドレス <span class="required">*必須</span></label>
+                  <label for="email">メールアドレス <span class="req">*必須</span></label>
                   <input type="email" id="email" name="email" required placeholder="例: info@example.com">
                   <p class="form-error" aria-live="polite"></p>
                 </div>
 
                 <div class="form-group">
-                  <label for="tel">電話番号 <span style="color:var(--color-text-muted);font-size:0.75rem;">（任意）</span></label>
+                  <label for="tel">電話番号 <span class="opt">（任意）</span></label>
                   <input type="tel" id="tel" name="tel" placeholder="例: 03-1234-5678">
                 </div>
 
                 <div class="form-group">
-                  <label for="message">メッセージ <span class="required">*必須</span></label>
+                  <label for="message">メッセージ <span class="req">*必須</span></label>
                   <textarea id="message" name="message" rows="6" required placeholder="お問い合わせ内容をご記入ください"></textarea>
                   <p class="form-error" aria-live="polite"></p>
                 </div>
@@ -102,23 +112,21 @@
                   <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
                 </div>
 
-                <button type="button" class="btn btn--primary" data-action="confirm" style="width:100%;">入力内容を確認する</button>
+                <button type="button" class="btn-solid" data-action="confirm" style="width:100%;">入力内容を確認する</button>
               </div>
 
-              <!-- Confirm Step -->
               <div class="confirm-step">
-                <h3 style="font-size:1.125rem;font-weight:700;margin-bottom:20px;">入力内容の確認</h3>
+                <h3 style="font-size:16px;font-weight:700;letter-spacing:0.1em;margin-bottom:20px;">入力内容の確認</h3>
                 <table class="confirm-table">
                   <tbody></tbody>
                 </table>
                 <div style="display:flex;gap:16px;flex-wrap:wrap;">
-                  <button type="button" class="btn btn--secondary" data-action="back">修正する</button>
-                  <button type="button" class="btn btn--primary" data-action="submit">送信する</button>
+                  <button type="button" class="btn-ghost" data-action="back">修正する</button>
+                  <button type="button" class="btn-solid" data-action="submit">送信する</button>
                 </div>
               </div>
             </form>
 
-            <!-- Success -->
             <div class="form-success">
               <div class="form-success__icon" aria-hidden="true">&#10003;</div>
               <h3 class="form-success__title">送信が完了しました</h3>
@@ -126,20 +134,19 @@
             </div>
           </div>
 
-          <!-- Sidebar -->
-          <aside class="contact-sidebar">
-            <div class="contact-sidebar__block">
-              <h3>所在地</h3>
+          <aside class="rv">
+            <div class="aside-block">
+              <h3>ADDRESS</h3>
               <p>〒167-0042<br>東京都杉並区西荻北3-12-8<br>AOKIビル 4F</p>
             </div>
-            <div class="contact-sidebar__block">
-              <h3>メール</h3>
+            <div class="aside-block">
+              <h3>MAIL</h3>
               <p>contact@aoki-animation.co.jp</p>
             </div>
-            <div class="contact-sidebar__block">
-              <h3>電話</h3>
+            <div class="aside-block">
+              <h3>TEL</h3>
               <p>03-XXXX-XXXX</p>
-              <p style="font-size:0.8125rem;color:var(--color-text-muted);">平日 10:00〜18:00</p>
+              <p style="font-size:12px;color:var(--mut);">平日 10:00〜18:00</p>
             </div>
           </aside>
         </div>
@@ -147,16 +154,41 @@
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__top">
-        <div><a href="index.html" class="footer__logo"><img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48"></a></div>
-        <nav class="footer__nav" aria-label="フッターナビゲーション"><a href="works.html">Works</a><a href="about.html">About</a><a href="service.html">Service</a><a href="news.html">News</a><a href="recruit.html">Recruit</a><a href="contact.html">Contact</a></nav>
-      </div>
-      <div class="footer__info"><p>株式会社 Aoki Animation</p><p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p><p>設立: 2018年4月 | 代表: 青木 翔太</p></div>
-      <div class="footer__bottom"><p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p><div class="footer__sns"><a href="#" class="sns-icon" aria-label="X (Twitter)">X</a><a href="#" class="sns-icon" aria-label="Instagram">Ig</a><a href="#" class="sns-icon" aria-label="YouTube">Yt</a></div></div>
+  <footer class="footer footer__corner" role="contentinfo">
+    <div class="footer__bg" aria-hidden="true"><video src="assets/video/footer.mp4?v=2" preload="auto" autoplay muted loop playsinline></video></div>
+    <a href="index.html" class="footer__logo" aria-label="Aoki Animation トップページ">
+      <span class="logo-type">AOKI ANIMATION<small>ANIMATION STUDIO — TOKYO</small></span>
+    </a>
+    <nav aria-label="フッターナビゲーション">
+      <ul class="footer__nav">
+        <li><a href="news.html">NEWS</a></li>
+        <li><a href="works.html">WORKS</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="service.html">SERVICE</a></li>
+        <li><a href="recruit.html">RECRUIT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li>
+          <div class="footer__sns">
+            <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <a href="#" class="footer__shop">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      AOKI ONLINE SHOP
+    </a>
+    <div class="footer__info">
+      <p>株式会社 Aoki Animation</p>
+      <p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p>
+      <p>設立: 2018年4月 | 代表: 青木 翔太</p>
     </div>
+    <p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p>
+    <a href="#main" class="pagetop pc-only">PAGE TOP</a>
   </footer>
-  <script src="assets/js/main.js" defer></script>
+
+  <script src="assets/js/main.js?v=20260730a" defer></script>
 </body>
 </html>

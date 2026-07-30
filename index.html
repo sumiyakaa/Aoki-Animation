@@ -2,225 +2,416 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Aoki Animation — 想像を、動かす。</title>
   <meta name="description" content="Aoki Animationは、TVアニメーション・劇場アニメーションの企画・制作を手がけるアニメーション制作スタジオです。">
-  <meta name="theme-color" content="#6C63FF">
+  <meta name="theme-color" content="#000000">
   <meta property="og:title" content="Aoki Animation — 想像を、動かす。">
   <meta property="og:description" content="TVアニメーション・劇場アニメーションの企画・制作を手がけるアニメーション制作スタジオ">
   <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;1,700&family=Jost:wght@300;400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260730a">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "株式会社 Aoki Animation",
+    "url": "https://sumiyakaa.github.io/Aoki-Animation/",
+    "foundingDate": "2018-04",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "東京都杉並区",
+      "streetAddress": "西荻北3-12-8 AOKIビル 4F",
+      "postalCode": "167-0042"
+    }
+  }
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
 
   <!-- Header -->
   <header class="header" role="banner">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo" aria-label="Aoki Animation トップページ">
-        <img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48">
-      </a>
-      <nav class="nav" role="navigation" aria-label="グローバルナビゲーション">
-        <ul class="nav__list">
-          <li><a href="works.html" class="nav__link">Works</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="service.html" class="nav__link">Service</a></li>
-          <li><a href="news.html" class="nav__link">News</a></li>
-          <li><a href="recruit.html" class="nav__link">Recruit</a></li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">お問い合わせ</a>
-      </nav>
-      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
-        <span class="hamburger__line"></span>
-        <span class="hamburger__line"></span>
-        <span class="hamburger__line"></span>
-      </button>
-    </div>
+    <a href="index.html" class="logo-type" aria-label="Aoki Animation トップページ">AOKI ANIMATION</a>
+    <nav class="gnav" role="navigation" aria-label="グローバルナビゲーション">
+      <ul class="gnav__list">
+        <li><a href="news.html" class="gnav__link">NEWS</a></li>
+        <li><a href="works.html" class="gnav__link">WORKS</a></li>
+        <li><a href="about.html" class="gnav__link">ABOUT</a></li>
+        <li><a href="service.html" class="gnav__link">SERVICE</a></li>
+        <li><a href="recruit.html" class="gnav__link">RECRUIT</a></li>
+        <li><a href="contact.html" class="gnav__link">CONTACT</a></li>
+      </ul>
+      <span class="lang" aria-hidden="true"><span class="is-on">JP</span><span>EN</span></span>
+    </nav>
+    <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
   <!-- Mobile Drawer -->
-  <div class="mobile-drawer" aria-hidden="true">
-    <a href="index.html" class="mobile-drawer__link">Home</a>
-    <a href="works.html" class="mobile-drawer__link">Works</a>
-    <a href="about.html" class="mobile-drawer__link">About</a>
-    <a href="service.html" class="mobile-drawer__link">Service</a>
-    <a href="news.html" class="mobile-drawer__link">News</a>
-    <a href="recruit.html" class="mobile-drawer__link">Recruit</a>
-    <a href="contact.html" class="mobile-drawer__link">Contact</a>
+  <div class="drawer" aria-hidden="true">
+    <a href="index.html">HOME<small>ホーム</small></a>
+    <a href="news.html">NEWS<small>お知らせ</small></a>
+    <a href="works.html">WORKS<small>制作実績</small></a>
+    <a href="about.html">ABOUT<small>スタジオ紹介</small></a>
+    <a href="service.html">SERVICE<small>事業内容</small></a>
+    <a href="recruit.html">RECRUIT<small>採用情報</small></a>
+    <a href="contact.html">CONTACT<small>お問い合わせ</small></a>
   </div>
+
+  <!-- Fixed UI -->
+  <div class="side-sns pc-only" aria-label="公式SNS">
+    <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+  </div>
+  <div class="seekbar" aria-hidden="true"><i></i></div>
+  <a href="news.html" class="fix-bnr" aria-label="Aoki Animation EXPO 2025 開催決定">
+    <span class="fix-bnr__big">EXPO<sub>2025</sub></span>
+    <span class="fix-bnr__txt">Aoki Animation EXPO<br>開催決定</span>
+    <span class="fix-bnr__arrow" aria-hidden="true"></span>
+  </a>
 
   <!-- Main -->
   <main id="main">
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero__bg"><img src="assets/img/hero.jpg" alt="Aoki Animation キービジュアル" width="1536" height="1024"></div>
-      <div class="hero__overlay"></div>
-      <div class="hero__content">
-        <p class="hero__sub-en">Where Imagination Comes to Life</p>
-        <h1 class="hero__title">想像を、動かす。</h1>
-        <p class="hero__copy">TVアニメーション・劇場アニメーションの企画・制作</p>
-        <div class="hero__cta">
-          <a href="works.html" class="btn btn--ghost">制作実績を見る</a>
-          <a href="contact.html" class="btn btn--primary">お問い合わせ</a>
-        </div>
+    <!-- Hero (fullscreen showreel) -->
+    <section class="hero" id="top">
+      <div class="hero__movie">
+        <video src="assets/video/showreel.mp4?v=3" poster="assets/img/hero-poster.jpg" autoplay muted loop playsinline aria-label="Aoki Animation 作品ショーリール"></video>
       </div>
-      <div class="hero__scroll">
-        <span>SCROLL</span>
-        <span class="hero__scroll-arrow"></span>
+      <div class="hero__title">
+        <p class="hero__title-kicker"><span class="ani"><span>想像を、動かす。</span></span></p>
+        <h1 class="hero__title-main">
+          <span class="hero__title-line"><span class="ani"><span>Where Imagination</span></span></span>
+          <span class="hero__title-line"><span class="ani"><span>Comes to Life</span></span></span>
+        </h1>
+        <p class="hero__title-meta"><span class="ani"><span>TVアニメーション・劇場アニメーションの企画・制作</span></span></p>
       </div>
+      <div class="hero__info" data-captions='[{"num":"01","title":"蒼穹のリリィ","status":"NOW ON AIR"},{"num":"02","title":"蒼穹のリリィ 第2クール","status":"COMING : JANUARY 2026"},{"num":"03","title":"劇場版 永遠のセレナーデ","status":"NOW SHOWING"},{"num":"04","title":"星屑カルテット","status":"STREAMING"},{"num":"05","title":"メカニクス・コード","status":"STREAMING"},{"num":"06","title":"花咲くころに","status":"ON BLU-RAY &amp; DVD"},{"num":"07","title":"新作オリジナルアニメ企画","status":"COMING SOON"}]'>
+        <p class="hero__info-num">01</p>
+        <p class="hero__info-title">蒼穹のリリィ</p>
+        <p class="hero__info-status">NOW ON AIR</p>
+        <ul class="hero__list pc-only">
+          <li class="is-on"><span>01</span>LILY OF THE AZURE SKY</li>
+          <li><span>02</span>LILY OF THE AZURE SKY Ⅱ</li>
+          <li><span>03</span>ETERNAL SERENADE</li>
+          <li><span>04</span>STARDUST QUARTET</li>
+          <li><span>05</span>MECHANIX CODE</li>
+          <li><span>06</span>WHEN FLOWERS BLOOM</li>
+          <li><span>07</span>NEW ORIGINAL PROJECT</li>
+        </ul>
+      </div>
+      <a href="news.html" class="hero__bnr pc-only">LILY 2ND COUR<small>TV「蒼穹のリリィ」第2クール 2026年1月放送決定</small></a>
+      <p class="hero__scroll pc-only">
+        <a href="#newworks">SCROLL
+          <span class="hero__scroll-line" aria-hidden="true"></span>
+          <span class="hero__scroll-line" aria-hidden="true"></span>
+        </a>
+      </p>
     </section>
 
-    <!-- News Ticker -->
-    <div class="news-ticker">
-      <div class="container news-ticker__inner">
-        <span class="news-ticker__label">NEWS</span>
-        <div class="news-ticker__list">
-          <div class="news-ticker__item">
-            <span class="news-ticker__date">2025.10.01</span>
-            <span class="news-ticker__badge">作品情報</span>
-            <span class="news-ticker__text"><a href="news.html">TV「蒼穹のリリィ」第2クール2026年1月放送決定</a></span>
-          </div>
-          <div class="news-ticker__item">
-            <span class="news-ticker__date">2025.09.15</span>
-            <span class="news-ticker__badge news-ticker__badge--event">イベント</span>
-            <span class="news-ticker__text"><a href="news.html">Aoki Animation EXPO 2025 開催決定</a></span>
-          </div>
-          <div class="news-ticker__item">
-            <span class="news-ticker__date">2025.08.20</span>
-            <span class="news-ticker__badge">作品情報</span>
-            <span class="news-ticker__text"><a href="news.html">劇場版「永遠のセレナーデ」興行収入10億円突破</a></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- About Digest -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-heading__en">About</span>
-          <span class="section-heading__ja">私たちについて</span>
-          <span class="section-heading__line"></span>
-        </div>
-        <div class="about-digest reveal">
-          <div class="about-digest__text">
-            <h3>アニメーションの力で、<br>心を動かす物語を。</h3>
-            <p>Aoki Animationは「すべての物語には、動き出す瞬間がある」という信念のもと、2018年に設立されたアニメーション制作スタジオです。原作の世界観を最大限に引き出し、視聴者の心に残る映像体験を届けること。それが私たちの使命です。</p>
-            <a href="about.html" class="btn btn--secondary btn--sm">もっと見る →</a>
-          </div>
-          <div class="about-digest__img" aria-label="スタジオイメージ"><img src="assets/img/studio-about.jpg" alt="Aoki Animation スタジオ" width="1200" height="800" style="width:100%;height:100%;object-fit:cover;border-radius:16px;"></div>
-        </div>
-      </div>
-      <div class="decoration-orb decoration-orb--purple" style="width:300px;height:300px;top:-50px;right:-100px;"></div>
-    </section>
-
-    <!-- Works Highlight -->
-    <section class="section section--alt" id="works">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-heading__en">Works</span>
-          <span class="section-heading__ja">制作実績</span>
-          <span class="section-heading__line"></span>
-        </div>
-        <div class="works-grid reveal">
-          <a href="works/lily.html" class="card work-card">
-            <div class="card__thumb"><img src="assets/img/work-lily.jpg" alt="蒼穹のリリィ" width="800" height="800" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card__body">
-              <span class="card__tag">TVアニメ</span>
-              <h3 class="card__title">蒼穹のリリィ</h3>
-              <p class="card__subtitle">2025年 | ファンタジー・アクション</p>
+    <!-- NEW WORKS -->
+    <section class="sec lineup" id="newworks">
+      <div class="inner">
+        <h2 class="sec-title"><span class="ani"><span>NEW WORKS</span></span></h2>
+        <div class="lineup__in">
+          <div class="lineup__rail-wrap">
+            <div class="lineup__rail" aria-label="最新作品スライダー">
+              <div class="lineup__item">
+                <a href="works/lily.html" class="lineup__link">
+                  <span class="lineup__imgwrap"><img src="assets/img/poster-lily.jpg" alt="蒼穹のリリィ" width="720" height="1080" loading="lazy" decoding="async"></span>
+                </a>
+                <p class="lineup__cap"><span class="num">01</span><span><span class="jp">蒼穹のリリィ</span><small>Lily of the Azure Sky · TV / 2025</small></span></p>
+              </div>
+              <div class="lineup__item">
+                <a href="works/serenade.html" class="lineup__link">
+                  <span class="lineup__imgwrap"><img src="assets/img/poster-serenade.jpg" alt="劇場版 永遠のセレナーデ" width="720" height="1080" loading="lazy" decoding="async"></span>
+                </a>
+                <p class="lineup__cap"><span class="num">02</span><span><span class="jp">劇場版 永遠のセレナーデ</span><small>Eternal Serenade · MOVIE / 2025</small></span></p>
+              </div>
+              <div class="lineup__item">
+                <a href="works/stardust.html" class="lineup__link">
+                  <span class="lineup__imgwrap"><img src="assets/img/poster-stardust.jpg" alt="星屑カルテット" width="720" height="1080" loading="lazy" decoding="async"></span>
+                </a>
+                <p class="lineup__cap"><span class="num">03</span><span><span class="jp">星屑カルテット</span><small>Stardust Quartet · TV / 2024</small></span></p>
+              </div>
+              <div class="lineup__item">
+                <a href="works/mechanix.html" class="lineup__link">
+                  <span class="lineup__imgwrap"><img src="assets/img/poster-mechanix.jpg" alt="メカニクス・コード" width="720" height="1080" loading="lazy" decoding="async"></span>
+                </a>
+                <p class="lineup__cap"><span class="num">04</span><span><span class="jp">メカニクス・コード</span><small>Mechanix Code · TV / 2024</small></span></p>
+              </div>
+              <div class="lineup__item">
+                <a href="works/flowers.html" class="lineup__link">
+                  <span class="lineup__imgwrap"><img src="assets/img/poster-flowers.jpg" alt="花咲くころに" width="720" height="1080" loading="lazy" decoding="async"></span>
+                </a>
+                <p class="lineup__cap"><span class="num">05</span><span><span class="jp">花咲くころに</span><small>When Flowers Bloom · OVA / 2023</small></span></p>
+              </div>
+              <div class="lineup__item">
+                <span class="lineup__link">
+                  <span class="lineup__imgwrap"><img src="assets/img/poster-teaser.jpg" alt="新作オリジナルアニメ企画 ティザービジュアル（仮）" width="720" height="1080" loading="lazy" decoding="async"></span>
+                </span>
+                <p class="lineup__cap"><span class="num">06</span><span><span class="jp">COMING SOON</span><small>新作オリジナルアニメ企画（仮）</small></span></p>
+              </div>
+              <div class="lineup__item">
+                <a href="works.html" class="lineup__tile">MORE<br>WORKS<small>すべての作品を見る</small></a>
+              </div>
             </div>
+            <button class="slider-btn slider-btn--prev pc-only" aria-label="前の作品へ"></button>
+            <button class="slider-btn slider-btn--next pc-only" aria-label="次の作品へ"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINK -->
+    <section class="sec">
+      <div class="inner">
+        <h2 class="sec-title"><span class="ani"><span>LINK</span></span></h2>
+        <div class="linksec__row inner-1100 rv">
+          <a href="works/lily.html" class="link-bnr">LILY OF THE AZURE SKY<small>「蒼穹のリリィ」作品ページ</small></a>
+          <a href="news.html" class="link-bnr">AOKI ANIMATION EXPO 2025<small>特設サイト（仮）</small></a>
+          <a href="#" class="link-bnr">OFFICIAL ONLINE SHOP<small>オンラインショップ（仮）</small></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="sec" id="news">
+      <div class="sec__bg"><img src="assets/img/bg-news.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="inner">
+        <h2 class="sec-title"><span class="ani"><span>NEWS</span></span></h2>
+        <div class="inner-900">
+          <p class="news-head rv"><a href="news.html" class="sec-more">ARCHIVE</a></p>
+          <ul class="news-list rv">
+            <li class="news-row">
+              <a href="news.html" class="news-row__in">
+                <span class="news-row__cat">NEWS</span>
+                <span class="news-row__date">2025.10.01</span>
+                <span class="news-row__title">TV「蒼穹のリリィ」第2クール2026年1月放送決定</span>
+              </a>
+            </li>
+            <li class="news-row">
+              <a href="news.html" class="news-row__in">
+                <span class="news-row__cat">EVENT</span>
+                <span class="news-row__date">2025.09.15</span>
+                <span class="news-row__title">Aoki Animation EXPO 2025 開催決定</span>
+              </a>
+            </li>
+            <li class="news-row">
+              <a href="news.html" class="news-row__in">
+                <span class="news-row__cat">NEWS</span>
+                <span class="news-row__date">2025.08.20</span>
+                <span class="news-row__title">劇場版「永遠のセレナーデ」興行収入10億円突破</span>
+              </a>
+            </li>
+            <li class="news-row">
+              <a href="news.html" class="news-row__in">
+                <span class="news-row__cat">INFO</span>
+                <span class="news-row__date">2025.07.01</span>
+                <span class="news-row__title">公式サイトリニューアル</span>
+              </a>
+            </li>
+            <li class="news-row">
+              <a href="news.html" class="news-row__in">
+                <span class="news-row__cat">NEWS</span>
+                <span class="news-row__date">2025.06.15</span>
+                <span class="news-row__title">新作オリジナルアニメ企画始動。ティザービジュアル公開。</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOODS -->
+    <section class="sec" id="goods">
+      <div class="sec__bg"><img src="assets/img/bg-goods.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="inner">
+        <h2 class="sec-title"><span class="ani"><span>GOODS</span></span></h2>
+        <div class="goods-grid rv">
+          <div class="goods-item" data-modal-img="assets/img/goods-01.jpg" data-title="蒼穹のリリィ Blu-ray BOX I（仮）" data-meta="CATEGORY : PACKAGE" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">PACKAGE</p>
+              <div class="goods-item__img"><img src="assets/img/goods-01.jpg" alt="蒼穹のリリィ Blu-ray BOX I（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">蒼穹のリリィ Blu-ray BOX I（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-02.jpg" data-title="蒼穹のリリィ「リリィ」1/7スケールフィギュア（仮）" data-meta="CATEGORY : FIGURE" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">FIGURE</p>
+              <div class="goods-item__img"><img src="assets/img/goods-02.jpg" alt="蒼穹のリリィ「リリィ」1/7スケールフィギュア（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">蒼穹のリリィ「リリィ」1/7スケールフィギュア（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-03.jpg" data-title="劇場版 永遠のセレナーデ オリジナルマグカップ（仮）" data-meta="CATEGORY : MUG" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">MUG</p>
+              <div class="goods-item__img"><img src="assets/img/goods-03.jpg" alt="劇場版 永遠のセレナーデ オリジナルマグカップ（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">劇場版 永遠のセレナーデ オリジナルマグカップ（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-04.jpg" data-title="劇場版 永遠のセレナーデ 公式ビジュアルブック（仮）" data-meta="CATEGORY : BOOK" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">BOOK</p>
+              <div class="goods-item__img"><img src="assets/img/goods-04.jpg" alt="劇場版 永遠のセレナーデ 公式ビジュアルブック（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">劇場版 永遠のセレナーデ 公式ビジュアルブック（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-05.jpg" data-title="星屑カルテット アクリルスタンド（仮）" data-meta="CATEGORY : ACRYL" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">ACRYL</p>
+              <div class="goods-item__img"><img src="assets/img/goods-05.jpg" alt="星屑カルテット アクリルスタンド（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">星屑カルテット アクリルスタンド（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-06.jpg" data-title="星屑カルテット メタルキーホルダー（仮）" data-meta="CATEGORY : KEY RING" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">KEY RING</p>
+              <div class="goods-item__img"><img src="assets/img/goods-06.jpg" alt="星屑カルテット メタルキーホルダー（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">星屑カルテット メタルキーホルダー（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-07.jpg" data-title="花咲くころに ポストカードセット（仮）" data-meta="CATEGORY : POST CARD" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">POST CARD</p>
+              <div class="goods-item__img"><img src="assets/img/goods-07.jpg" alt="花咲くころに ポストカードセット（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">花咲くころに ポストカードセット（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-08.jpg" data-title="永遠のセレナーデ フィルム風しおり（仮）" data-meta="CATEGORY : FILM" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">FILM</p>
+              <div class="goods-item__img"><img src="assets/img/goods-08.jpg" alt="永遠のセレナーデ フィルム風しおり（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">永遠のセレナーデ フィルム風しおり（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-09.jpg" data-title="メカニクス・コード Blu-ray BOX（仮）" data-meta="CATEGORY : PACKAGE" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">PACKAGE</p>
+              <div class="goods-item__img"><img src="assets/img/goods-09.jpg" alt="メカニクス・コード Blu-ray BOX（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">メカニクス・コード Blu-ray BOX（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-10.jpg" data-title="メカニクス・コード「ZERO-Ω」アクションフィギュア（仮）" data-meta="CATEGORY : FIGURE" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">FIGURE</p>
+              <div class="goods-item__img"><img src="assets/img/goods-10.jpg" alt="メカニクス・コード「ZERO-Ω」アクションフィギュア（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">メカニクス・コード「ZERO-Ω」アクションフィギュア（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-11.jpg" data-title="AOKI ANIMATION WORKS 2018-2025 設定資料集（仮）" data-meta="CATEGORY : BOOK" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">BOOK</p>
+              <div class="goods-item__img"><img src="assets/img/goods-11.jpg" alt="AOKI ANIMATION WORKS 2018-2025 設定資料集（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">AOKI ANIMATION WORKS 2018-2025 設定資料集（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <div class="goods-item" data-modal-img="assets/img/goods-12.jpg" data-title="AOKI ANIMATION ロゴTシャツ（仮）" data-meta="CATEGORY : APPAREL" role="button" tabindex="0">
+            <p class="goods-item__cat">CATEGORY :</p>
+            <div class="goods-item__visual">
+              <p class="goods-item__word" aria-hidden="true">APPAREL</p>
+              <div class="goods-item__img"><img src="assets/img/goods-12.jpg" alt="AOKI ANIMATION ロゴTシャツ（仮）" width="800" height="800" loading="lazy" decoding="async"></div>
+            </div>
+            <p class="goods-item__label">TITLE :</p>
+            <p class="goods-item__title">AOKI ANIMATION ロゴTシャツ（仮）</p>
+            <span class="goods-item__bar" aria-hidden="true"></span>
+          </div>
+          <a href="#" class="goods-shop">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            AOKI<br>ONLINE SHOP
           </a>
-          <a href="works/stardust.html" class="card work-card">
-            <div class="card__thumb"><img src="assets/img/work-stardust.jpg" alt="星屑カルテット" width="800" height="800" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card__body">
-              <span class="card__tag">TVアニメ</span>
-              <h3 class="card__title">星屑カルテット</h3>
-              <p class="card__subtitle">2024年 | 音楽・青春</p>
-            </div>
-          </a>
-          <a href="works/serenade.html" class="card work-card">
-            <div class="card__thumb"><img src="assets/img/work-serenade.jpg" alt="永遠のセレナーデ" width="800" height="800" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card__body">
-              <span class="card__tag">劇場版</span>
-              <h3 class="card__title">劇場版 永遠のセレナーデ</h3>
-              <p class="card__subtitle">2025年 | 恋愛・ドラマ</p>
-            </div>
-          </a>
-          <a href="works/mechanix.html" class="card work-card">
-            <div class="card__thumb"><img src="assets/img/work-mechanix.jpg" alt="メカニクス・コード" width="800" height="800" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card__body">
-              <span class="card__tag">TVアニメ</span>
-              <h3 class="card__title">メカニクス・コード</h3>
-              <p class="card__subtitle">2024年 | SF・メカ</p>
-            </div>
-          </a>
         </div>
-        <div style="text-align:center;margin-top:40px;" class="reveal">
-          <a href="works.html" class="btn btn--secondary">すべての作品を見る →</a>
-        </div>
-      </div>
-      <div class="decoration-orb decoration-orb--blue" style="width:250px;height:250px;bottom:-80px;left:-60px;"></div>
-    </section>
-
-    <!-- Service Digest -->
-    <section class="section" id="service">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-heading__en">Service</span>
-          <span class="section-heading__ja">事業内容</span>
-          <span class="section-heading__line"></span>
-        </div>
-        <div class="service-grid reveal">
-          <div class="card service-card">
-            <div class="service-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <h3 class="service-card__title">TVアニメーション制作</h3>
-            <p class="service-card__desc">シリーズ構成から作画・撮影・編集まで、高品質なTVアニメーションを一貫して制作します。</p>
-          </div>
-          <div class="card service-card">
-            <div class="service-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
-            </div>
-            <h3 class="service-card__title">劇場アニメーション制作</h3>
-            <p class="service-card__desc">大スクリーン対応の高密度作画と没入感ある音響設計で、劇場作品を制作します。</p>
-          </div>
-          <div class="card service-card">
-            <div class="service-card__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            </div>
-            <h3 class="service-card__title">企画・プリプロダクション</h3>
-            <p class="service-card__desc">世界観設計、キャラクターデザイン、コンセプトアート、パイロットフィルムの制作。</p>
-          </div>
-        </div>
-      </div>
-      <div class="decoration-orb decoration-orb--pink" style="width:200px;height:200px;top:50px;right:-50px;"></div>
-    </section>
-
-    <!-- Recruit Banner -->
-    <section class="recruit-banner">
-      <div class="recruit-banner__content container reveal">
-        <h2 class="recruit-banner__title">アニメーションの未来を、一緒に。</h2>
-        <a href="recruit.html" class="btn btn--ghost">採用情報を見る</a>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-      <div class="container contact-section reveal">
-        <div class="section-heading">
-          <span class="section-heading__en">Contact</span>
-          <span class="section-heading__ja">お問い合わせ</span>
-          <span class="section-heading__line"></span>
+    <!-- YOUTUBE -->
+    <section class="sec" id="youtube">
+      <div class="sec__bg"><img src="assets/img/bg-youtube.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="inner">
+        <h2 class="sec-title"><span class="ani"><span>YOUTUBE</span></span></h2>
+        <div class="yt-rail-wrap rv">
+          <div class="yt-rail" aria-label="公式YouTube動画">
+            <button class="yt-item" data-modal-video="assets/video/pv-lily.mp4?v=2" data-title="「蒼穹のリリィ」ノンクレジットOP映像（仮）" data-meta="AOKI ANIMATION OFFICIAL">
+              <img src="assets/img/lily-scene03.jpg" alt="「蒼穹のリリィ」ノンクレジットOP映像（仮）" width="1536" height="1024" loading="lazy" decoding="async">
+              <span class="yt-item__play" aria-hidden="true"></span>
+              <span class="yt-item__cap">「蒼穹のリリィ」ノンクレジットOP映像（仮）</span>
+            </button>
+            <button class="yt-item" data-modal-video="assets/video/pv-serenade.mp4?v=2" data-title="劇場版「永遠のセレナーデ」本予告（仮）" data-meta="AOKI ANIMATION OFFICIAL">
+              <img src="assets/img/serenade-scene06.jpg" alt="劇場版「永遠のセレナーデ」本予告（仮）" width="1536" height="1024" loading="lazy" decoding="async">
+              <span class="yt-item__play" aria-hidden="true"></span>
+              <span class="yt-item__cap">劇場版「永遠のセレナーデ」本予告（仮）</span>
+            </button>
+            <button class="yt-item" data-modal-video="assets/video/pv-stardust.mp4?v=2" data-title="「星屑カルテット」ライブMV（仮）" data-meta="AOKI ANIMATION OFFICIAL">
+              <img src="assets/img/stardust-scene02.jpg" alt="「星屑カルテット」ライブMV（仮）" width="1536" height="1024" loading="lazy" decoding="async">
+              <span class="yt-item__play" aria-hidden="true"></span>
+              <span class="yt-item__cap">「星屑カルテット」ライブMV（仮）</span>
+            </button>
+            <button class="yt-item" data-modal-video="assets/video/pv-mechanix.mp4?v=2" data-title="「メカニクス・コード」PV第2弾（仮）" data-meta="AOKI ANIMATION OFFICIAL">
+              <img src="assets/img/mechanix-scene03.jpg" alt="「メカニクス・コード」PV第2弾（仮）" width="1536" height="1024" loading="lazy" decoding="async">
+              <span class="yt-item__play" aria-hidden="true"></span>
+              <span class="yt-item__cap">「メカニクス・コード」PV第2弾（仮）</span>
+            </button>
+            <button class="yt-item" data-modal-video="assets/video/pv-flowers.mp4?v=2" data-title="「花咲くころに」ダイジェスト映像（仮）" data-meta="AOKI ANIMATION OFFICIAL">
+              <img src="assets/img/flowers-scene03.jpg" alt="「花咲くころに」ダイジェスト映像（仮）" width="1536" height="1024" loading="lazy" decoding="async">
+              <span class="yt-item__play" aria-hidden="true"></span>
+              <span class="yt-item__cap">「花咲くころに」ダイジェスト映像（仮）</span>
+            </button>
+            <button class="yt-item" data-modal-video="assets/video/showreel.mp4?v=3" data-title="AOKI ANIMATION SHOWREEL 2025（仮）" data-meta="AOKI ANIMATION OFFICIAL">
+              <img src="assets/img/hero.jpg" alt="AOKI ANIMATION SHOWREEL 2025（仮）" width="1536" height="1024" loading="lazy" decoding="async">
+              <span class="yt-item__play" aria-hidden="true"></span>
+              <span class="yt-item__cap">AOKI ANIMATION SHOWREEL 2025（仮）</span>
+            </button>
+          </div>
+          <button class="slider-btn slider-btn--prev pc-only" aria-label="前の動画へ"></button>
+          <button class="slider-btn slider-btn--next pc-only" aria-label="次の動画へ"></button>
         </div>
-        <p>制作のご依頼、取材、採用に関するお問い合わせなど、お気軽にご連絡ください。</p>
-        <div style="margin-top:8px;">
-          <a href="contact.html" class="btn btn--primary">お問い合わせフォームへ</a>
+        <div class="yt-sub rv">
+          <span class="yt-sub__badge" aria-hidden="true">
+            <b><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z" fill="#fff"/><path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#f00"/></svg>YouTube</b>
+            <span>128K</span>
+          </span>
+          <span class="yt-sub__line" aria-hidden="true"></span>
+          <p class="yt-sub__txt">PLEASE SUBSCRIBE</p>
         </div>
       </div>
     </section>
@@ -228,39 +419,50 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__top">
-        <div>
-          <a href="index.html" class="footer__logo">
-            <img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48">
-          </a>
-        </div>
-        <nav class="footer__nav" aria-label="フッターナビゲーション">
-          <a href="works.html">Works</a>
-          <a href="about.html">About</a>
-          <a href="service.html">Service</a>
-          <a href="news.html">News</a>
-          <a href="recruit.html">Recruit</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-      </div>
-      <div class="footer__info">
-        <p>株式会社 Aoki Animation</p>
-        <p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p>
-        <p>設立: 2018年4月 | 代表: 青木 翔太</p>
-      </div>
-      <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p>
-        <div class="footer__sns">
-          <a href="#" class="sns-icon" aria-label="X (Twitter)">X</a>
-          <a href="#" class="sns-icon" aria-label="Instagram">Ig</a>
-          <a href="#" class="sns-icon" aria-label="YouTube">Yt</a>
-        </div>
-      </div>
+  <footer class="footer footer__corner" role="contentinfo">
+    <div class="footer__bg" aria-hidden="true"><video src="assets/video/footer.mp4?v=2" preload="auto" autoplay muted loop playsinline></video></div>
+    <a href="index.html" class="footer__logo" aria-label="Aoki Animation トップページ">
+      <span class="logo-type">AOKI ANIMATION<small>ANIMATION STUDIO — TOKYO</small></span>
+    </a>
+    <nav aria-label="フッターナビゲーション">
+      <ul class="footer__nav">
+        <li><a href="news.html">NEWS</a></li>
+        <li><a href="works.html">WORKS</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="service.html">SERVICE</a></li>
+        <li><a href="recruit.html">RECRUIT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li>
+          <div class="footer__sns">
+            <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <a href="#" class="footer__shop">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      AOKI ONLINE SHOP
+    </a>
+    <div class="footer__info">
+      <p>株式会社 Aoki Animation</p>
+      <p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p>
+      <p>設立: 2018年4月 | 代表: 青木 翔太</p>
     </div>
+    <p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p>
+    <a href="#top" class="pagetop pc-only">PAGE TOP</a>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
+  <!-- Modal -->
+  <div class="modal" role="dialog" aria-modal="true" aria-label="詳細表示">
+    <div class="modal__bg"></div>
+    <div class="modal__box">
+      <button class="modal__close" aria-label="閉じる"></button>
+      <div class="modal__content"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js?v=20260730a" defer></script>
 </body>
 </html>

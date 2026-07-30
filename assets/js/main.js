@@ -1,388 +1,368 @@
 /* ============================================================
-   AokiAnimation — main.js
+   AOKI ANIMATION — main.js
+   Motion policy: reduced-motion is intentionally not gated (design decision).
    ============================================================ */
 (function () {
   "use strict";
 
-  /* ----------------------------------------------------------
-     1. Scroll Reveal (IntersectionObserver)
-     ---------------------------------------------------------- */
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
+  /* ---------- 1. Scroll reveal (mask reveal + fade) ---------- */
   function initReveal() {
-    const els = document.querySelectorAll(".reveal");
-    if (!els.length) return;
-
-    if (prefersReducedMotion) {
-      els.forEach(function (el) {
-        el.classList.add("is-visible");
-      });
+    var els = document.querySelectorAll(".rv, .ani, .sec-title, .lineup__in, .rv-group");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(function (el) { el.classList.add("is-in"); });
       return;
     }
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    els.forEach(function (el) {
-      observer.observe(el);
-    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    els.forEach(function (el) { io.observe(el); });
   }
 
-  /* ----------------------------------------------------------
-     2. Header Scroll Change
-     ---------------------------------------------------------- */
-  function initHeaderScroll() {
+  /* ---------- 2. Header ---------- */
+  function initHeader() {
     var header = document.querySelector(".header");
     if (!header) return;
-
-    function onScroll() {
-      if (window.scrollY > 60) {
-        header.classList.add("is-scrolled");
-      } else {
-        header.classList.remove("is-scrolled");
-      }
-    }
-
+    var onScroll = function () {
+      header.classList.toggle("is-solid", window.scrollY > 80);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
 
-  /* ----------------------------------------------------------
-     3. Mobile Menu
-     ---------------------------------------------------------- */
-  function initMobileMenu() {
-    var hamburger = document.querySelector(".hamburger");
-    var drawer = document.querySelector(".mobile-drawer");
-    if (!hamburger || !drawer) return;
-
-    var drawerLinks = drawer.querySelectorAll(".mobile-drawer__link");
-
-    function openMenu() {
-      hamburger.classList.add("is-active");
-      drawer.classList.add("is-open");
-      hamburger.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeMenu() {
-      hamburger.classList.remove("is-active");
+  /* ---------- 3. Drawer (SP) ---------- */
+  function initDrawer() {
+    var btn = document.querySelector(".hamburger");
+    var drawer = document.querySelector(".drawer");
+    if (!btn || !drawer) return;
+    var close = function () {
+      btn.classList.remove("is-open");
       drawer.classList.remove("is-open");
-      hamburger.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-expanded", "false");
+      drawer.setAttribute("aria-hidden", "true");
+    };
+    btn.addEventListener("click", function () {
+      var open = !btn.classList.contains("is-open");
+      btn.classList.toggle("is-open", open);
+      drawer.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", String(open));
+      drawer.setAttribute("aria-hidden", String(!open));
+    });
+    drawer.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", close);
+    });
+    window.addEventListener("pageshow", close);
+  }
+
+  /* ---------- 4. Seekbar (scroll progress, teal) ---------- */
+  function initSeekbar() {
+    var bar = document.querySelector(".seekbar");
+    if (!bar) return;
+    var update = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var p = max > 0 ? (window.scrollY / max) * 100 : 0;
+      bar.style.setProperty("--seek", p.toFixed(2) + "%");
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
+  /* ---------- 5. Hero showreel caption sync ---------- */
+  function initHeroCaptions() {
+    var video = document.querySelector(".hero__movie video");
+    var info = document.querySelector(".hero__info");
+    if (!video || !info) return;
+    var caps = [];
+    try { caps = JSON.parse(info.getAttribute("data-captions") || "[]"); } catch (e) { caps = []; }
+    if (!caps.length) return;
+    var numEl = info.querySelector(".hero__info-num");
+    var titleEl = info.querySelector(".hero__info-title");
+    var statusEl = info.querySelector(".hero__info-status");
+    var listItems = document.querySelectorAll(".hero__list li");
+    var SEG = 2.8; // clip length minus crossfade
+    var current = -1;
+    var tick = function () {
+      var t = video.currentTime || 0;
+      var idx = Math.min(caps.length - 1, Math.floor(t / SEG));
+      if (idx !== current && caps[idx]) {
+        current = idx;
+        if (numEl) numEl.textContent = caps[idx].num;
+        if (titleEl) titleEl.textContent = caps[idx].title;
+        if (statusEl) statusEl.textContent = caps[idx].status;
+        listItems.forEach(function (li, n) { li.classList.toggle("is-on", n === idx); });
+      }
+    };
+    video.addEventListener("timeupdate", tick);
+    // Autoplay guard: if blocked, keep poster and first caption
+    var p = video.play();
+    if (p && p.catch) { p.catch(function () {}); }
+  }
+
+  /* ---------- 5b. Loop guard (recover stalled autoplay-loop videos) ---------- */
+  function initVideoLoopGuard() {
+    var videos = document.querySelectorAll("video[autoplay][loop]");
+    if (!videos.length) return;
+    var state = [];
+    videos.forEach(function (v) { state.push({ v: v, t: -1, stall: 0 }); });
+    setInterval(function () {
+      state.forEach(function (s) {
+        if (s.v.paused || s.v.readyState < 2) return;
+        if (s.v.currentTime === s.t) {
+          s.stall++;
+          if (s.stall >= 2) {
+            s.v.currentTime = 0.01;
+            var p = s.v.play();
+            if (p && p.catch) p.catch(function () {});
+            s.stall = 0;
+          }
+        } else {
+          s.stall = 0;
+        }
+        s.t = s.v.currentTime;
+      });
+    }, 1000);
+  }
+
+  /* ---------- 6. Horizontal rails (works / youtube) ---------- */
+  function initRail(wrapSel, railSel) {
+    document.querySelectorAll(wrapSel).forEach(function (wrap) {
+      var rail = wrap.querySelector(railSel);
+      if (!rail) return;
+      var prev = wrap.querySelector(".slider-btn--prev");
+      var next = wrap.querySelector(".slider-btn--next");
+      var step = function () {
+        var item = rail.firstElementChild;
+        return item ? item.getBoundingClientRect().width + 26 : 300;
+      };
+      if (prev) prev.addEventListener("click", function () { rail.scrollBy({ left: -step(), behavior: "smooth" }); });
+      if (next) next.addEventListener("click", function () { rail.scrollBy({ left: step(), behavior: "smooth" }); });
+      // pointer drag
+      var down = false, startX = 0, startLeft = 0, moved = false;
+      rail.addEventListener("pointerdown", function (e) {
+        if (e.pointerType !== "mouse") return;
+        down = true; moved = false;
+        startX = e.clientX; startLeft = rail.scrollLeft;
+        rail.classList.add("is-drag");
+      });
+      window.addEventListener("pointermove", function (e) {
+        if (!down) return;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        rail.scrollLeft = startLeft - dx;
+      });
+      window.addEventListener("pointerup", function () {
+        down = false;
+        rail.classList.remove("is-drag");
+      });
+      rail.addEventListener("click", function (e) {
+        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+      }, true);
+    });
+  }
+
+  /* ---------- 7. Modal (video / goods) ---------- */
+  function initModal() {
+    var modal = document.querySelector(".modal");
+    if (!modal) return;
+    var box = modal.querySelector(".modal__content");
+    var lastFocus = null;
+    var close = function () {
+      modal.classList.remove("is-open");
       document.body.style.overflow = "";
-    }
-
-    hamburger.addEventListener("click", function () {
-      if (drawer.classList.contains("is-open")) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+      if (box) box.innerHTML = "";
+      if (lastFocus) lastFocus.focus();
+    };
+    var open = function (html) {
+      if (box) box.innerHTML = html;
+      modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      var v = modal.querySelector("video");
+      if (v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      var c = modal.querySelector(".modal__close");
+      if (c) c.focus();
+    };
+    document.querySelectorAll("[data-modal-video]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        lastFocus = el;
+        var title = el.getAttribute("data-title") || "";
+        var meta = el.getAttribute("data-meta") || "";
+        open(
+          '<video src="' + el.getAttribute("data-modal-video") + '" controls muted playsinline loop></video>' +
+          '<div class="modal__body"><p class="modal__title">' + title + '</p><p class="modal__meta">' + meta + "</p></div>"
+        );
+      });
     });
-
-    drawerLinks.forEach(function (link) {
-      link.addEventListener("click", closeMenu);
+    document.querySelectorAll("[data-modal-img]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        lastFocus = el;
+        var title = el.getAttribute("data-title") || "";
+        var meta = el.getAttribute("data-meta") || "";
+        open(
+          '<img src="' + el.getAttribute("data-modal-img") + '" alt="' + title + '">' +
+          '<div class="modal__body"><p class="modal__title">' + title + '</p><p class="modal__meta">' + meta + "</p></div>"
+        );
+      });
     });
-
+    modal.querySelector(".modal__bg").addEventListener("click", close);
+    modal.querySelector(".modal__close").addEventListener("click", close);
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && drawer.classList.contains("is-open")) {
-        closeMenu();
-      }
+      if (e.key === "Escape" && modal.classList.contains("is-open")) close();
     });
+    window.addEventListener("pageshow", close);
   }
 
-  /* ----------------------------------------------------------
-     4. Works Filtering (works.html)
-     ---------------------------------------------------------- */
-  function initWorksFilter() {
-    var container = document.querySelector("[data-filter-target='works']");
-    if (!container) return;
-
-    var buttons = container
-      .closest(".section, main")
-      .querySelectorAll("[data-filter]");
-    var cards = container.querySelectorAll("[data-category]");
-
-    buttons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var cat = btn.getAttribute("data-filter");
-
-        buttons.forEach(function (b) {
-          b.classList.remove("is-active");
-        });
-        btn.classList.add("is-active");
-
-        cards.forEach(function (card) {
-          if (cat === "all" || card.getAttribute("data-category") === cat) {
-            card.setAttribute("data-visible", "true");
-            card.style.display = "";
-          } else {
-            card.setAttribute("data-visible", "false");
-            card.style.display = "none";
-          }
-        });
+  /* ---------- 8. Smooth anchor ---------- */
+  function initAnchors() {
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        var id = a.getAttribute("href");
+        if (id.length < 2) return;
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
       });
     });
   }
 
-  /* ----------------------------------------------------------
-     5. News Filtering (news.html)
-     ---------------------------------------------------------- */
+  /* ---------- 9. Job accordion (recruit) ---------- */
+  function initAccordion() {
+    document.querySelectorAll(".job__head").forEach(function (head) {
+      var body = head.nextElementSibling;
+      if (!body) return;
+      var toggle = function () {
+        var open = head.getAttribute("aria-expanded") === "true";
+        head.setAttribute("aria-expanded", String(!open));
+        body.style.maxHeight = open ? "0px" : body.scrollHeight + "px";
+      };
+      head.addEventListener("click", toggle);
+      head.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+      });
+    });
+  }
+
+  /* ---------- 10. News filter (news page) ---------- */
   function initNewsFilter() {
-    var container = document.querySelector("[data-filter-target='news']");
-    if (!container) return;
-
-    var buttons = document.querySelectorAll("[data-news-filter]");
-    var items = container.querySelectorAll("[data-category]");
-
-    buttons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var cat = btn.getAttribute("data-news-filter");
-
-        buttons.forEach(function (b) {
-          b.classList.remove("is-active");
-        });
-        btn.classList.add("is-active");
-
-        items.forEach(function (item) {
-          if (cat === "all" || item.getAttribute("data-category") === cat) {
-            item.setAttribute("data-visible", "true");
-            item.style.display = "";
-          } else {
-            item.setAttribute("data-visible", "false");
-            item.style.display = "none";
-          }
+    var tabs = document.querySelectorAll(".news-tabs button");
+    var rows = document.querySelectorAll("[data-news-list] .news-row");
+    if (!tabs.length) return;
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        tabs.forEach(function (t) { t.classList.toggle("is-on", t === tab); });
+        var f = tab.getAttribute("data-news-filter");
+        rows.forEach(function (row) {
+          row.style.display = (f === "all" || row.getAttribute("data-category") === f) ? "" : "none";
         });
       });
     });
   }
 
-  /* ----------------------------------------------------------
-     6. Contact Form
-     ---------------------------------------------------------- */
-  function initContactForm() {
+  /* ---------- 11. Works year-nav current highlight ---------- */
+  function initYearNav() {
+    var nav = document.querySelector(".year-nav");
+    if (!nav) return;
+    var links = nav.querySelectorAll("li");
+    var groups = document.querySelectorAll(".wcat-group[id]");
+    if (!groups.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          var id = "#" + e.target.id;
+          links.forEach(function (li) {
+            var a = li.querySelector("a");
+            li.classList.toggle("is-on", a && a.getAttribute("href") === id);
+          });
+        }
+      });
+    }, { rootMargin: "-40% 0px -50% 0px" });
+    groups.forEach(function (g) { io.observe(g); });
+  }
+
+  /* ---------- 12. Contact form (pseudo submit) ---------- */
+  function initForm() {
     var form = document.getElementById("contact-form");
     if (!form) return;
-
-    var inputStep = form.querySelector(".input-step");
-    var confirmStep = form.querySelector(".confirm-step");
-    var successEl = document.querySelector(".form-success");
-    var confirmBtn = form.querySelector("[data-action='confirm']");
-    var backBtn = form.querySelector("[data-action='back']");
-    var submitBtn = form.querySelector("[data-action='submit']");
-
-    // Validation rules
-    function validateField(field) {
-      var value = field.value.trim();
-      var group = field.closest(".form-group");
-      var errorEl = group ? group.querySelector(".form-error") : null;
-      var isRequired = field.hasAttribute("required");
-      var type = field.getAttribute("type");
-      var valid = true;
-      var message = "";
-
-      if (isRequired && !value) {
-        valid = false;
-        message = "この項目は必須です";
-      } else if (type === "email" && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-        valid = false;
-        message = "正しいメールアドレスを入力してください";
-      }
-
-      if (!valid) {
-        field.classList.add("is-invalid");
-        if (errorEl) {
-          errorEl.textContent = message;
-          errorEl.classList.add("is-visible");
-        }
-      } else {
-        field.classList.remove("is-invalid");
-        if (errorEl) {
-          errorEl.textContent = "";
-          errorEl.classList.remove("is-visible");
-        }
-      }
-
-      return valid;
-    }
-
-    // Real-time validation
-    var fields = form.querySelectorAll(
-      "input[required], textarea[required], input[type='email']"
-    );
-    fields.forEach(function (field) {
-      field.addEventListener("blur", function () {
-        validateField(field);
+    var success = document.querySelector(".form-success");
+    var confirmTbody = form.querySelector(".confirm-table tbody");
+    var validate = function () {
+      var ok = true;
+      form.querySelectorAll("[required]").forEach(function (input) {
+        var err = input.parentElement.querySelector(".form-error");
+        var msg = "";
+        if (!input.value.trim()) msg = "入力してください";
+        else if (input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) msg = "メールアドレスの形式が正しくありません";
+        if (err) err.textContent = msg;
+        if (msg) ok = false;
       });
-    });
-
-    // Confirm step
-    if (confirmBtn) {
-      confirmBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        var allValid = true;
-        fields.forEach(function (field) {
-          if (!validateField(field)) allValid = false;
-        });
-
-        // Check honeypot
-        var hp = form.querySelector(".hp-field input");
-        if (hp && hp.value) return;
-
-        if (!allValid) return;
-
-        // Build confirm table
-        var confirmTable = confirmStep.querySelector(".confirm-table tbody");
-        if (confirmTable) {
-          confirmTable.innerHTML = "";
-
-          var typeRadio = form.querySelector("input[name='type']:checked");
-          var rows = [
-            ["お問い合わせ種別", typeRadio ? typeRadio.parentElement.textContent.trim() : ""],
-            ["会社名", form.querySelector("[name='company']") ? form.querySelector("[name='company']").value : ""],
-            ["お名前", form.querySelector("[name='name']").value],
-            ["メールアドレス", form.querySelector("[name='email']").value],
-            ["電話番号", form.querySelector("[name='tel']") ? form.querySelector("[name='tel']").value : ""],
-            ["メッセージ", form.querySelector("[name='message']").value]
+      return ok;
+    };
+    form.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-action]");
+      if (!btn) return;
+      var action = btn.getAttribute("data-action");
+      if (action === "confirm") {
+        if (!validate()) return;
+        if (confirmTbody) {
+          confirmTbody.innerHTML = "";
+          var fields = [
+            ["お問い合わせ種別", (form.querySelector('input[name="type"]:checked') || {}).value || ""],
+            ["会社名", form.company.value],
+            ["お名前", form.name.value],
+            ["メールアドレス", form.email.value],
+            ["電話番号", form.tel.value],
+            ["メッセージ", form.message.value]
           ];
-
-          rows.forEach(function (row) {
+          fields.forEach(function (f) {
             var tr = document.createElement("tr");
-            tr.innerHTML =
-              "<th>" + escapeHtml(row[0]) + "</th><td>" + escapeHtml(row[1]) + "</td>";
-            confirmTable.appendChild(tr);
+            var th = document.createElement("th");
+            var td = document.createElement("td");
+            th.textContent = f[0];
+            td.textContent = f[1] || "—";
+            tr.appendChild(th); tr.appendChild(td);
+            confirmTbody.appendChild(tr);
           });
         }
-
-        inputStep.classList.add("is-hidden");
-        confirmStep.classList.add("is-active");
-        window.scrollTo({ top: form.offsetTop - 100, behavior: "smooth" });
-      });
-    }
-
-    // Back button
-    if (backBtn) {
-      backBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        confirmStep.classList.remove("is-active");
-        inputStep.classList.remove("is-hidden");
-      });
-    }
-
-    // Submit
-    if (submitBtn) {
-      submitBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        var formData = new FormData(form);
-
-        fetch(form.getAttribute("action"), {
-          method: "POST",
-          body: formData,
-          headers: { Accept: "application/json" }
-        })
-          .then(function (res) {
-            if (res.ok) {
-              form.style.display = "none";
-              if (successEl) successEl.classList.add("is-active");
-            } else {
-              alert("送信に失敗しました。もう一度お試しください。");
-            }
-          })
-          .catch(function () {
-            // Show success anyway for demo (Formspree endpoint is placeholder)
-            form.style.display = "none";
-            if (successEl) successEl.classList.add("is-active");
-          });
-      });
-    }
-  }
-
-  function escapeHtml(str) {
-    var div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  }
-
-  /* ----------------------------------------------------------
-     7. Sparkle Particles
-     ---------------------------------------------------------- */
-  function initParticles() {
-    if (prefersReducedMotion) return;
-
-    var hero = document.querySelector(".hero");
-    if (!hero) return;
-
-    var isMobile = window.innerWidth < 768;
-    var count = isMobile ? 15 : 30;
-
-    for (var i = 0; i < count; i++) {
-      var p = document.createElement("span");
-      p.classList.add("particle");
-      p.style.left = Math.random() * 100 + "%";
-      p.style.top = Math.random() * 100 + "%";
-      p.style.setProperty("--duration", (2 + Math.random() * 4) + "s");
-      p.style.setProperty("--delay", (Math.random() * 5) + "s");
-      p.style.width = (2 + Math.random() * 4) + "px";
-      p.style.height = p.style.width;
-
-      // Vary colors
-      var colors = ["#FFD700", "#A78BFA", "#F472B6", "#60A5FA", "#FFFFFF"];
-      p.style.background = colors[Math.floor(Math.random() * colors.length)];
-
-      hero.appendChild(p);
-    }
-  }
-
-  /* ----------------------------------------------------------
-     8. Recruit Accordion
-     ---------------------------------------------------------- */
-  function initAccordion() {
-    var headers = document.querySelectorAll(".job-card__header");
-    if (!headers.length) return;
-
-    headers.forEach(function (header) {
-      header.addEventListener("click", function () {
-        var card = header.closest(".job-card");
-        if (!card) return;
-
-        var isOpen = card.classList.contains("is-open");
-
-        // Close all
-        document.querySelectorAll(".job-card.is-open").forEach(function (c) {
-          c.classList.remove("is-open");
-        });
-
-        // Toggle current
-        if (!isOpen) {
-          card.classList.add("is-open");
-        }
-      });
+        form.classList.add("is-confirm");
+        form.scrollIntoView({ behavior: "smooth" });
+      } else if (action === "back") {
+        form.classList.remove("is-confirm");
+      } else if (action === "submit") {
+        // Demo site: no real transmission
+        form.style.display = "none";
+        if (success) success.style.display = "block";
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     });
   }
 
-  /* ----------------------------------------------------------
-     Init all
-     ---------------------------------------------------------- */
-  document.addEventListener("DOMContentLoaded", function () {
+  /* ---------- boot ---------- */
+  function boot() {
     initReveal();
-    initHeaderScroll();
-    initMobileMenu();
-    initWorksFilter();
-    initNewsFilter();
-    initContactForm();
-    initParticles();
+    initHeader();
+    initDrawer();
+    initSeekbar();
+    initHeroCaptions();
+    initVideoLoopGuard();
+    initRail(".lineup__rail-wrap", ".lineup__rail");
+    initRail(".yt-rail-wrap", ".yt-rail");
+    initModal();
+    initAnchors();
     initAccordion();
-  });
+    initNewsFilter();
+    initYearNav();
+    initForm();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
 })();

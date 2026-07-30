@@ -2,131 +2,187 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>制作実績 — Aoki Animation</title>
   <meta name="description" content="Aoki Animationの制作実績。TVアニメ・劇場版・OVAなどの作品一覧をご紹介します。">
-  <meta name="theme-color" content="#6C63FF">
+  <meta name="theme-color" content="#000000">
   <meta property="og:title" content="制作実績 — Aoki Animation">
   <meta property="og:description" content="TVアニメ・劇場版・OVAなどの作品一覧">
   <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;1,700&family=Jost:wght@300;400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260730a">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
   <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
 
-  <!-- Header -->
-  <header class="header is-scrolled" role="banner">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo" aria-label="Aoki Animation トップページ">
-        <img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48">
-      </a>
-      <nav class="nav" role="navigation" aria-label="グローバルナビゲーション">
-        <ul class="nav__list">
-          <li><a href="works.html" class="nav__link is-active">Works</a></li>
-          <li><a href="about.html" class="nav__link">About</a></li>
-          <li><a href="service.html" class="nav__link">Service</a></li>
-          <li><a href="news.html" class="nav__link">News</a></li>
-          <li><a href="recruit.html" class="nav__link">Recruit</a></li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">お問い合わせ</a>
-      </nav>
-      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
-        <span class="hamburger__line"></span>
-        <span class="hamburger__line"></span>
-        <span class="hamburger__line"></span>
-      </button>
-    </div>
+  <header class="header is-solid" role="banner">
+    <a href="index.html" class="logo-type" aria-label="Aoki Animation トップページ">AOKI ANIMATION</a>
+    <nav class="gnav" role="navigation" aria-label="グローバルナビゲーション">
+      <ul class="gnav__list">
+        <li><a href="news.html" class="gnav__link">NEWS</a></li>
+        <li><a href="works.html" class="gnav__link" aria-current="page">WORKS</a></li>
+        <li><a href="about.html" class="gnav__link">ABOUT</a></li>
+        <li><a href="service.html" class="gnav__link">SERVICE</a></li>
+        <li><a href="recruit.html" class="gnav__link">RECRUIT</a></li>
+        <li><a href="contact.html" class="gnav__link">CONTACT</a></li>
+      </ul>
+      <span class="lang" aria-hidden="true"><span class="is-on">JP</span><span>EN</span></span>
+    </nav>
+    <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <div class="mobile-drawer" aria-hidden="true">
-    <a href="index.html" class="mobile-drawer__link">Home</a>
-    <a href="works.html" class="mobile-drawer__link">Works</a>
-    <a href="about.html" class="mobile-drawer__link">About</a>
-    <a href="service.html" class="mobile-drawer__link">Service</a>
-    <a href="news.html" class="mobile-drawer__link">News</a>
-    <a href="recruit.html" class="mobile-drawer__link">Recruit</a>
-    <a href="contact.html" class="mobile-drawer__link">Contact</a>
+  <div class="drawer" aria-hidden="true">
+    <a href="index.html">HOME<small>ホーム</small></a>
+    <a href="news.html">NEWS<small>お知らせ</small></a>
+    <a href="works.html">WORKS<small>制作実績</small></a>
+    <a href="about.html">ABOUT<small>スタジオ紹介</small></a>
+    <a href="service.html">SERVICE<small>事業内容</small></a>
+    <a href="recruit.html">RECRUIT<small>採用情報</small></a>
+    <a href="contact.html">CONTACT<small>お問い合わせ</small></a>
   </div>
 
-  <main id="main">
-    <!-- Page Hero -->
-    <section class="page-hero">
-      <span class="page-hero__en">Works</span>
-      <h1 class="page-hero__title">制作実績</h1>
-    </section>
+  <div class="seekbar" aria-hidden="true"><i></i></div>
 
-    <!-- Breadcrumb -->
-    <div class="container">
+  <!-- Year nav (fixed right) -->
+  <nav class="year-nav pc-only" aria-label="年代ナビゲーション">
+    <ul>
+      <li><a href="#w-coming">C</a></li>
+      <li><a href="#w-2025">25</a></li>
+      <li><a href="#w-2024">24</a></li>
+      <li><a href="#w-2023">23</a></li>
+    </ul>
+  </nav>
+
+  <main id="main" class="page-main">
+    <h1 class="sec-title"><span class="ani"><span>WORKS</span></span></h1>
+
+    <div class="inner-900">
       <nav class="breadcrumb" aria-label="パンくずリスト">
-        <a href="index.html">TOP</a>
-        <span class="breadcrumb__sep">&gt;</span>
-        <span>制作実績</span>
+        <a href="index.html">TOP</a><span aria-hidden="true">/</span><span>制作実績</span>
       </nav>
     </div>
 
-    <!-- Works List -->
-    <section class="section">
-      <div class="container">
-        <!-- Filter -->
-        <div class="filter-bar reveal">
-          <button class="filter-btn is-active" data-filter="all">すべて</button>
-          <button class="filter-btn" data-filter="tv">TVアニメ</button>
-          <button class="filter-btn" data-filter="movie">劇場版</button>
-          <button class="filter-btn" data-filter="ova">OVA・配信</button>
+    <!-- COMING SOON -->
+    <section class="wcat-group" id="w-coming">
+      <div class="wcat-group__head">
+        <div class="rv">
+          <h2 class="wcat-group__era">Coming<br>Soon</h2>
+          <ul class="wcat-group__list">
+            <li><span class="num">01</span><span>新作オリジナルアニメ企画（タイトル未発表）</span></li>
+            <li><span class="num">02</span><a href="works/lily.html">TV「蒼穹のリリィ」第2クール</a></li>
+          </ul>
         </div>
-
-        <!-- Grid -->
-        <div class="works-list reveal" data-filter-target="works">
-          <a href="works/lily.html" class="card work-card" data-category="tv">
-            <div class="card__thumb"><img src="assets/img/work-lily.jpg" alt="蒼穹のリリィ" width="800" height="800" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card__body">
-              <span class="card__tag">TVアニメ</span>
-              <h3 class="card__title">蒼穹のリリィ</h3>
-              <p class="card__subtitle">Lily of the Azure Sky</p>
-              <p class="work-card__info">全24話 | 2025年 | ファンタジー・アクション | 企画・制作（元請）</p>
+        <div class="wcat-group__works rv">
+          <span class="wcat-card">
+            <div class="wcat-card__img"><img src="assets/img/poster-teaser.jpg" alt="新作オリジナルアニメ企画 ティザービジュアル（仮）" width="720" height="1080" loading="lazy" decoding="async"></div>
+            <div class="wcat-card__meta">
+              <p class="wcat-card__cat">ORIGINAL PROJECT</p>
+              <p class="wcat-card__title">新作オリジナルアニメ企画（タイトル未発表）</p>
+              <p class="wcat-card__sub">COMING SOON</p>
+            </div>
+          </span>
+          <a href="works/lily.html" class="wcat-card">
+            <div class="wcat-card__img"><img src="assets/img/poster-lily.jpg" alt="蒼穹のリリィ 第2クール" width="720" height="1080" loading="lazy" decoding="async"></div>
+            <div class="wcat-card__meta">
+              <p class="wcat-card__cat">TV ANIMATION / 2026</p>
+              <p class="wcat-card__title">蒼穹のリリィ 第2クール</p>
+              <p class="wcat-card__sub">LILY OF THE AZURE SKY Ⅱ</p>
             </div>
           </a>
+        </div>
+      </div>
+    </section>
 
-          <a href="works/stardust.html" class="card work-card" data-category="tv">
-            <div class="card__thumb"><img src="assets/img/work-stardust.jpg" alt="星屑カルテット" width="800" height="800" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card__body">
-              <span class="card__tag">TVアニメ</span>
-              <h3 class="card__title">星屑カルテット</h3>
-              <p class="card__subtitle">Stardust Quartet</p>
-              <p class="work-card__info">全12話 | 2024年 | 音楽・青春 | 企画・制作（元請）</p>
+    <!-- 2025 -->
+    <section class="wcat-group" id="w-2025">
+      <div class="wcat-group__head">
+        <div class="rv">
+          <h2 class="wcat-group__era">2025</h2>
+          <ul class="wcat-group__list">
+            <li><span class="num">01</span><a href="works/lily.html">蒼穹のリリィ</a></li>
+            <li><span class="num">02</span><a href="works/serenade.html">劇場版 永遠のセレナーデ</a></li>
+          </ul>
+        </div>
+        <div class="wcat-group__works rv">
+          <a href="works/lily.html" class="wcat-card">
+            <div class="wcat-card__img"><img src="assets/img/poster-lily.jpg" alt="蒼穹のリリィ" width="720" height="1080" loading="lazy" decoding="async"></div>
+            <div class="wcat-card__meta">
+              <p class="wcat-card__cat">TV ANIMATION / 2025</p>
+              <p class="wcat-card__title">蒼穹のリリィ</p>
+              <p class="wcat-card__sub">LILY OF THE AZURE SKY</p>
+              <p class="wcat-card__info">全24話 | ファンタジー・アクション | 企画・制作（元請）</p>
             </div>
           </a>
-
-          <a href="works/serenade.html" class="card work-card" data-category="movie">
-            <div class="card__thumb"><img src="assets/img/work-serenade.jpg" alt="永遠のセレナーデ" width="800" height="800" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card__body">
-              <span class="card__tag">劇場版</span>
-              <h3 class="card__title">劇場版 永遠のセレナーデ</h3>
-              <p class="card__subtitle">Eternal Serenade: The Movie</p>
-              <p class="work-card__info">2025年 | 恋愛・ドラマ | 企画・制作（元請）</p>
+          <a href="works/serenade.html" class="wcat-card">
+            <div class="wcat-card__img"><img src="assets/img/poster-serenade.jpg" alt="劇場版 永遠のセレナーデ" width="720" height="1080" loading="lazy" decoding="async"></div>
+            <div class="wcat-card__meta">
+              <p class="wcat-card__cat">MOVIE / 2025</p>
+              <p class="wcat-card__title">劇場版 永遠のセレナーデ</p>
+              <p class="wcat-card__sub">ETERNAL SERENADE: THE MOVIE</p>
+              <p class="wcat-card__info">恋愛・ドラマ | 企画・制作（元請）</p>
             </div>
           </a>
+        </div>
+      </div>
+    </section>
 
-          <a href="works/mechanix.html" class="card work-card" data-category="tv">
-            <div class="card__thumb"><img src="assets/img/work-mechanix.jpg" alt="メカニクス・コード" width="800" height="800" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card__body">
-              <span class="card__tag">TVアニメ</span>
-              <h3 class="card__title">メカニクス・コード</h3>
-              <p class="card__subtitle">Mechanix Code</p>
-              <p class="work-card__info">全12話 | 2024年 | SF・メカ | 制作協力</p>
+    <!-- 2024 -->
+    <section class="wcat-group" id="w-2024">
+      <div class="wcat-group__head">
+        <div class="rv">
+          <h2 class="wcat-group__era">2024</h2>
+          <ul class="wcat-group__list">
+            <li><span class="num">01</span><a href="works/stardust.html">星屑カルテット</a></li>
+            <li><span class="num">02</span><a href="works/mechanix.html">メカニクス・コード</a></li>
+          </ul>
+        </div>
+        <div class="wcat-group__works rv">
+          <a href="works/stardust.html" class="wcat-card">
+            <div class="wcat-card__img"><img src="assets/img/poster-stardust.jpg" alt="星屑カルテット" width="720" height="1080" loading="lazy" decoding="async"></div>
+            <div class="wcat-card__meta">
+              <p class="wcat-card__cat">TV ANIMATION / 2024</p>
+              <p class="wcat-card__title">星屑カルテット</p>
+              <p class="wcat-card__sub">STARDUST QUARTET</p>
+              <p class="wcat-card__info">全12話 | 音楽・青春 | 企画・制作（元請）</p>
             </div>
           </a>
+          <a href="works/mechanix.html" class="wcat-card">
+            <div class="wcat-card__img"><img src="assets/img/poster-mechanix.jpg" alt="メカニクス・コード" width="720" height="1080" loading="lazy" decoding="async"></div>
+            <div class="wcat-card__meta">
+              <p class="wcat-card__cat">TV ANIMATION / 2024</p>
+              <p class="wcat-card__title">メカニクス・コード</p>
+              <p class="wcat-card__sub">MECHANIX CODE</p>
+              <p class="wcat-card__info">全12話 | SF・メカ | 制作協力</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-          <a href="works/flowers.html" class="card work-card" data-category="ova">
-            <div class="card__thumb"><img src="assets/img/work-flowers.jpg" alt="花咲くころに" width="800" height="800" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card__body">
-              <span class="card__tag">OVA</span>
-              <h3 class="card__title">花咲くころに</h3>
-              <p class="card__subtitle">When Flowers Bloom</p>
-              <p class="work-card__info">全3話 | 2023年 | 日常・ヒューマンドラマ | 企画・制作（元請）</p>
+    <!-- 2023 -->
+    <section class="wcat-group" id="w-2023">
+      <div class="wcat-group__head">
+        <div class="rv">
+          <h2 class="wcat-group__era">2023</h2>
+          <ul class="wcat-group__list">
+            <li><span class="num">01</span><a href="works/flowers.html">花咲くころに</a></li>
+          </ul>
+        </div>
+        <div class="wcat-group__works rv">
+          <a href="works/flowers.html" class="wcat-card">
+            <div class="wcat-card__img"><img src="assets/img/poster-flowers.jpg" alt="花咲くころに" width="720" height="1080" loading="lazy" decoding="async"></div>
+            <div class="wcat-card__meta">
+              <p class="wcat-card__cat">OVA / 2023</p>
+              <p class="wcat-card__title">花咲くころに</p>
+              <p class="wcat-card__sub">WHEN FLOWERS BLOOM</p>
+              <p class="wcat-card__info">全3話 | 日常・ヒューマンドラマ | 企画・制作（元請）</p>
             </div>
           </a>
         </div>
@@ -134,40 +190,41 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__top">
-        <div>
-          <a href="index.html" class="footer__logo">
-            <img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48">
-          </a>
-        </div>
-        <nav class="footer__nav" aria-label="フッターナビゲーション">
-          <a href="works.html">Works</a>
-          <a href="about.html">About</a>
-          <a href="service.html">Service</a>
-          <a href="news.html">News</a>
-          <a href="recruit.html">Recruit</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-      </div>
-      <div class="footer__info">
-        <p>株式会社 Aoki Animation</p>
-        <p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p>
-        <p>設立: 2018年4月 | 代表: 青木 翔太</p>
-      </div>
-      <div class="footer__bottom">
-        <p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p>
-        <div class="footer__sns">
-          <a href="#" class="sns-icon" aria-label="X (Twitter)">X</a>
-          <a href="#" class="sns-icon" aria-label="Instagram">Ig</a>
-          <a href="#" class="sns-icon" aria-label="YouTube">Yt</a>
-        </div>
-      </div>
+  <footer class="footer footer__corner" role="contentinfo">
+    <div class="footer__bg" aria-hidden="true"><video src="assets/video/footer.mp4?v=2" preload="auto" autoplay muted loop playsinline></video></div>
+    <a href="index.html" class="footer__logo" aria-label="Aoki Animation トップページ">
+      <span class="logo-type">AOKI ANIMATION<small>ANIMATION STUDIO — TOKYO</small></span>
+    </a>
+    <nav aria-label="フッターナビゲーション">
+      <ul class="footer__nav">
+        <li><a href="news.html">NEWS</a></li>
+        <li><a href="works.html">WORKS</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="service.html">SERVICE</a></li>
+        <li><a href="recruit.html">RECRUIT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li>
+          <div class="footer__sns">
+            <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <a href="#" class="footer__shop">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      AOKI ONLINE SHOP
+    </a>
+    <div class="footer__info">
+      <p>株式会社 Aoki Animation</p>
+      <p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p>
+      <p>設立: 2018年4月 | 代表: 青木 翔太</p>
     </div>
+    <p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p>
+    <a href="#main" class="pagetop pc-only">PAGE TOP</a>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=20260730a" defer></script>
 </body>
 </html>

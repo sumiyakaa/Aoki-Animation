@@ -2,156 +2,168 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>スタジオ紹介 — Aoki Animation</title>
   <meta name="description" content="Aoki Animationのスタジオ紹介。ミッション・ビジョン、会社概要、沿革、スタジオ環境についてご紹介します。">
-  <meta name="theme-color" content="#6C63FF">
+  <meta name="theme-color" content="#000000">
   <meta property="og:title" content="スタジオ紹介 — Aoki Animation">
   <meta property="og:description" content="アニメーション制作スタジオ Aoki Animationについて">
   <meta property="og:type" content="website">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Barlow+Condensed:ital,wght@0,600;0,700;1,700&family=Jost:wght@300;400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260730a">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
   <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
 
-  <header class="header is-scrolled" role="banner">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo" aria-label="Aoki Animation トップページ"><img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48"></a>
-      <nav class="nav" role="navigation" aria-label="グローバルナビゲーション">
-        <ul class="nav__list">
-          <li><a href="works.html" class="nav__link">Works</a></li>
-          <li><a href="about.html" class="nav__link is-active">About</a></li>
-          <li><a href="service.html" class="nav__link">Service</a></li>
-          <li><a href="news.html" class="nav__link">News</a></li>
-          <li><a href="recruit.html" class="nav__link">Recruit</a></li>
-        </ul>
-        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">お問い合わせ</a>
-      </nav>
-      <button class="hamburger" aria-label="メニューを開く" aria-expanded="false"><span class="hamburger__line"></span><span class="hamburger__line"></span><span class="hamburger__line"></span></button>
-    </div>
+  <header class="header is-solid" role="banner">
+    <a href="index.html" class="logo-type" aria-label="Aoki Animation トップページ">AOKI ANIMATION</a>
+    <nav class="gnav" role="navigation" aria-label="グローバルナビゲーション">
+      <ul class="gnav__list">
+        <li><a href="news.html" class="gnav__link">NEWS</a></li>
+        <li><a href="works.html" class="gnav__link">WORKS</a></li>
+        <li><a href="about.html" class="gnav__link" aria-current="page">ABOUT</a></li>
+        <li><a href="service.html" class="gnav__link">SERVICE</a></li>
+        <li><a href="recruit.html" class="gnav__link">RECRUIT</a></li>
+        <li><a href="contact.html" class="gnav__link">CONTACT</a></li>
+      </ul>
+      <span class="lang" aria-hidden="true"><span class="is-on">JP</span><span>EN</span></span>
+    </nav>
+    <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
-  <div class="mobile-drawer" aria-hidden="true">
-    <a href="index.html" class="mobile-drawer__link">Home</a><a href="works.html" class="mobile-drawer__link">Works</a><a href="about.html" class="mobile-drawer__link">About</a><a href="service.html" class="mobile-drawer__link">Service</a><a href="news.html" class="mobile-drawer__link">News</a><a href="recruit.html" class="mobile-drawer__link">Recruit</a><a href="contact.html" class="mobile-drawer__link">Contact</a>
+  <div class="drawer" aria-hidden="true">
+    <a href="index.html">HOME<small>ホーム</small></a>
+    <a href="news.html">NEWS<small>お知らせ</small></a>
+    <a href="works.html">WORKS<small>制作実績</small></a>
+    <a href="about.html">ABOUT<small>スタジオ紹介</small></a>
+    <a href="service.html">SERVICE<small>事業内容</small></a>
+    <a href="recruit.html">RECRUIT<small>採用情報</small></a>
+    <a href="contact.html">CONTACT<small>お問い合わせ</small></a>
   </div>
 
-  <main id="main">
-    <section class="page-hero">
-      <span class="page-hero__en">About</span>
-      <h1 class="page-hero__title">スタジオ紹介</h1>
-    </section>
+  <div class="seekbar" aria-hidden="true"><i></i></div>
 
-    <div class="container">
+  <main id="main" class="page-main">
+    <h1 class="sec-title"><span class="ani"><span>ABOUT</span></span></h1>
+
+    <div class="inner-900">
       <nav class="breadcrumb" aria-label="パンくずリスト">
-        <a href="index.html">TOP</a><span class="breadcrumb__sep">&gt;</span><span>スタジオ紹介</span>
+        <a href="index.html">TOP</a><span aria-hidden="true">/</span><span>スタジオ紹介</span>
       </nav>
     </div>
 
-    <!-- Mission -->
-    <section class="section">
-      <div class="container">
-        <div class="mission reveal">
-          <h2 class="mission__catch">想像力に、命を吹き込む。</h2>
-          <p class="mission__text">Aoki Animationは「すべての物語には、動き出す瞬間がある」という信念のもと、2018年に設立されたアニメーション制作スタジオです。原作の世界観を最大限に引き出し、視聴者の心に残る映像体験を届けること。それが私たちの使命です。作画・演出・撮影・音響、あらゆる工程にこだわり抜き、一つひとつのカットに魂を込めて制作しています。</p>
-        </div>
-      </div>
-      <div class="decoration-orb decoration-orb--purple" style="width:250px;height:250px;top:-60px;left:-80px;"></div>
-    </section>
-
-    <!-- Company Overview -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-heading__en">Company</span>
-          <span class="section-heading__ja">会社概要</span>
-          <span class="section-heading__line"></span>
-        </div>
-        <table class="company-table reveal">
-          <tr><th>社名</th><td>株式会社 Aoki Animation</td></tr>
-          <tr><th>設立</th><td>2018年4月</td></tr>
-          <tr><th>代表</th><td>青木 翔太</td></tr>
-          <tr><th>所在地</th><td>東京都杉並区西荻北3-12-8 AOKIビル 4F</td></tr>
-          <tr><th>従業員数</th><td>約120名（2025年4月現在）</td></tr>
-          <tr><th>事業内容</th><td>アニメーションの企画・制作、キャラクターデザイン、CG制作、映像編集</td></tr>
-          <tr><th>主要取引先</th><td>各放送局・出版社・製作委員会</td></tr>
-        </table>
+    <!-- VISION -->
+    <section class="sec" style="padding-top:120px;">
+      <div class="inner inner-900 vision rv">
+        <p class="vision__label">VISION</p>
+        <h2 class="vision__catch">想像力に、命を吹き込む。</h2>
+        <p class="vision__text">Aoki Animationは「すべての物語には、動き出す瞬間がある」という信念のもと、2018年に設立されたアニメーション制作スタジオです。原作の世界観を最大限に引き出し、視聴者の心に残る映像体験を届けること。それが私たちの使命です。作画・演出・撮影・音響、あらゆる工程にこだわり抜き、一つひとつのカットに魂を込めて制作しています。</p>
       </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-heading__en">History</span>
-          <span class="section-heading__ja">沿革</span>
-          <span class="section-heading__line"></span>
-        </div>
-        <div class="timeline reveal">
-          <div class="timeline__item">
-            <p class="timeline__year">2018</p>
-            <p class="timeline__text">スタジオ設立。OVA「花咲くころに」企画開始。</p>
-          </div>
-          <div class="timeline__item">
-            <p class="timeline__year">2019</p>
-            <p class="timeline__text">第1スタジオ稼働。スタッフ30名体制。</p>
-          </div>
-          <div class="timeline__item">
-            <p class="timeline__year">2020</p>
-            <p class="timeline__text">初TVシリーズ受注。撮影・仕上げ内製化完了。</p>
-          </div>
-          <div class="timeline__item">
-            <p class="timeline__year">2022</p>
-            <p class="timeline__text">第2スタジオ開設。3DCGセクション新設。80名体制。</p>
-          </div>
-          <div class="timeline__item">
-            <p class="timeline__year">2023</p>
-            <p class="timeline__text">OVA「花咲くころに」公開。国内アワードノミネート。</p>
-          </div>
-          <div class="timeline__item">
-            <p class="timeline__year">2024</p>
-            <p class="timeline__text">TV「星屑カルテット」「メカニクス・コード」放映。</p>
-          </div>
-          <div class="timeline__item">
-            <p class="timeline__year">2025</p>
-            <p class="timeline__text">TV「蒼穹のリリィ」放映開始。劇場版「永遠のセレナーデ」公開。120名体制。</p>
+    <!-- STUDIO -->
+    <section class="sec">
+      <div class="inner">
+        <h2 class="sec-title"><span class="ani"><span>STUDIO</span></span></h2>
+        <div class="inner-1100 studio-block">
+          <p class="side-label rv">STUDIO &amp; ENVIRONMENT</p>
+          <h3 class="studio-block__name rv">TOKYO<br>STUDIO</h3>
+          <ul class="dept-tabs rv" aria-hidden="true">
+            <li class="is-on">作画・演出</li>
+            <li>3DCG</li>
+            <li>撮影・仕上げ</li>
+            <li>制作</li>
+          </ul>
+          <div class="dept">
+            <div class="dept__text rv">
+              <h4 class="dept__jp">スタジオ環境</h4>
+              <p>広々とした作画フロア、最新のデジタル作画環境、充実した資料ライブラリ。クリエイターが最高のパフォーマンスを発揮できる環境づくりに力を入れています。</p>
+              <p>全席にWacom Cintiq Pro を導入し、CLIP STUDIO PAINTやTVPaint Animationなど、プロ仕様のソフトウェアを完備。快適な制作環境のなかで、クリエイターたちが日々作品づくりに取り組んでいます。</p>
+            </div>
+            <figure class="dept__img rv">
+              <img src="assets/img/photo-studio-floor.jpg" alt="Aoki Animation スタジオ環境" width="1200" height="800" loading="lazy" decoding="async">
+              <figcaption>TOKYO STUDIO — WORK FLOOR</figcaption>
+            </figure>
           </div>
         </div>
       </div>
-      <div class="decoration-orb decoration-orb--blue" style="width:200px;height:200px;bottom:-60px;right:-40px;"></div>
     </section>
 
-    <!-- Studio Environment -->
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-heading reveal">
-          <span class="section-heading__en">Environment</span>
-          <span class="section-heading__ja">スタジオ環境</span>
-          <span class="section-heading__line"></span>
-        </div>
-        <div class="studio-env reveal">
-          <div>
-            <p>広々とした作画フロア、最新のデジタル作画環境、充実した資料ライブラリ。クリエイターが最高のパフォーマンスを発揮できる環境づくりに力を入れています。</p>
-            <p style="margin-top:16px;">全席にWacom Cintiq Pro を導入し、CLIP STUDIO PAINTやTVPaint Animationなど、プロ仕様のソフトウェアを完備。快適な制作環境のなかで、クリエイターたちが日々作品づくりに取り組んでいます。</p>
-          </div>
-          <div class="studio-env__img" aria-label="スタジオ環境イメージ"><img src="assets/img/studio-env.jpg" alt="Aoki Animation スタジオ環境" width="1200" height="800" style="width:100%;height:100%;object-fit:cover;border-radius:16px;"></div>
-        </div>
+    <!-- COMPANY PROFILE -->
+    <section class="sec">
+      <div class="inner">
+        <h2 class="sec-title"><span class="ani"><span>COMPANY PROFILE</span></span></h2>
+        <dl class="prf-list inner-900 rv">
+          <div><dt>社名</dt><dd>株式会社 Aoki Animation</dd></div>
+          <div><dt>設立</dt><dd>2018年4月</dd></div>
+          <div><dt>代表</dt><dd>青木 翔太</dd></div>
+          <div><dt>所在地</dt><dd>東京都杉並区西荻北3-12-8 AOKIビル 4F</dd></div>
+          <div><dt>従業員数</dt><dd>約120名（2025年4月現在）</dd></div>
+          <div><dt>事業内容</dt><dd>アニメーションの企画・制作、キャラクターデザイン、CG制作、映像編集</dd></div>
+          <div><dt>主要取引先</dt><dd>各放送局・出版社・製作委員会</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section class="sec">
+      <div class="inner">
+        <h2 class="sec-title"><span class="ani"><span>HISTORY</span></span></h2>
+        <ul class="history inner-900 rv">
+          <li><span>2018</span><p>スタジオ設立。OVA「花咲くころに」企画開始。</p></li>
+          <li><span>2019</span><p>第1スタジオ稼働。スタッフ30名体制。</p></li>
+          <li><span>2020</span><p>初TVシリーズ受注。撮影・仕上げ内製化完了。</p></li>
+          <li><span>2022</span><p>第2スタジオ開設。3DCGセクション新設。80名体制。</p></li>
+          <li><span>2023</span><p>OVA「花咲くころに」公開。国内アワードノミネート。</p></li>
+          <li><span>2024</span><p>TV「星屑カルテット」「メカニクス・コード」放映。</p></li>
+          <li><span>2025</span><p>TV「蒼穹のリリィ」放映開始。劇場版「永遠のセレナーデ」公開。120名体制。</p></li>
+        </ul>
       </div>
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__top">
-        <div><a href="index.html" class="footer__logo"><img src="assets/img/logo.svg" alt="Aoki Animation" width="200" height="48"></a></div>
-        <nav class="footer__nav" aria-label="フッターナビゲーション"><a href="works.html">Works</a><a href="about.html">About</a><a href="service.html">Service</a><a href="news.html">News</a><a href="recruit.html">Recruit</a><a href="contact.html">Contact</a></nav>
-      </div>
-      <div class="footer__info"><p>株式会社 Aoki Animation</p><p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p><p>設立: 2018年4月 | 代表: 青木 翔太</p></div>
-      <div class="footer__bottom"><p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p><div class="footer__sns"><a href="#" class="sns-icon" aria-label="X (Twitter)">X</a><a href="#" class="sns-icon" aria-label="Instagram">Ig</a><a href="#" class="sns-icon" aria-label="YouTube">Yt</a></div></div>
+  <footer class="footer footer__corner" role="contentinfo">
+    <div class="footer__bg" aria-hidden="true"><video src="assets/video/footer.mp4?v=2" preload="auto" autoplay muted loop playsinline></video></div>
+    <a href="index.html" class="footer__logo" aria-label="Aoki Animation トップページ">
+      <span class="logo-type">AOKI ANIMATION<small>ANIMATION STUDIO — TOKYO</small></span>
+    </a>
+    <nav aria-label="フッターナビゲーション">
+      <ul class="footer__nav">
+        <li><a href="news.html">NEWS</a></li>
+        <li><a href="works.html">WORKS</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="service.html">SERVICE</a></li>
+        <li><a href="recruit.html">RECRUIT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li>
+          <div class="footer__sns">
+            <a href="#" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <a href="#" class="footer__shop">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+      AOKI ONLINE SHOP
+    </a>
+    <div class="footer__info">
+      <p>株式会社 Aoki Animation</p>
+      <p>〒167-0042 東京都杉並区西荻北3-12-8 AOKIビル 4F</p>
+      <p>設立: 2018年4月 | 代表: 青木 翔太</p>
     </div>
+    <p class="footer__copy">&copy; 2025 Aoki Animation Inc. All Rights Reserved.</p>
+    <a href="#main" class="pagetop pc-only">PAGE TOP</a>
   </footer>
-  <script src="assets/js/main.js" defer></script>
+
+  <script src="assets/js/main.js?v=20260730a" defer></script>
 </body>
 </html>
