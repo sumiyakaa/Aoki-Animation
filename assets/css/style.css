@@ -796,3 +796,34 @@ input:focus, textarea:focus { border-color: #fff; }
   .facts li { padding-right: 12px; }
   .voice-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- subpage ambient background (anchor-style fixed art layer) ---------- */
+.page-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.page-bg img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transform: scale(1);
+  animation: pageBgFade 36s ease-in-out infinite;
+}
+.page-bg img:nth-child(2) { animation-delay: -18s; }
+.page-bg::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.66); }
+@keyframes pageBgFade {
+  0% { opacity: 0; transform: scale(1); }
+  8% { opacity: 1; }
+  50% { opacity: 1; }
+  58% { opacity: 0; transform: scale(1.07); }
+  100% { opacity: 0; transform: scale(1.07); }
+}
+/* calm variant (contact): single static image, deeper dim, no motion */
+.page-bg--calm img { animation: none; opacity: 1; transform: none; }
+.page-bg--calm::after { background: rgba(0, 0, 0, 0.85); }
+main { position: relative; z-index: 1; }
+.footer { z-index: 1; }
+
+/* ---------- page transition (black veil) ---------- */
+.js body { animation: pageIn 0.6s ease both; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+.page-veil {
+  position: fixed; inset: 0; z-index: 260; background: #000;
+  opacity: 0; pointer-events: none; transition: opacity 0.36s ease;
+}
+.page-veil.is-in { opacity: 1; pointer-events: auto; }

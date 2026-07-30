@@ -118,6 +118,27 @@
     }
   }
 
+  /* ---------- 5a. Page transition (black veil, anchor-style) ---------- */
+  function initPageTransition() {
+    var veil = document.createElement("div");
+    veil.className = "page-veil";
+    veil.setAttribute("aria-hidden", "true");
+    document.body.appendChild(veil);
+    var reset = function () { veil.classList.remove("is-in"); };
+    window.addEventListener("pageshow", reset);
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest ? e.target.closest("a") : null;
+      if (!a) return;
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var href = a.getAttribute("href") || "";
+      if (!href || href.charAt(0) === "#" || a.target === "_blank" || a.hasAttribute("download") || a.getAttribute("aria-disabled") === "true") return;
+      if (/^(https?:|mailto:|tel:|javascript:)/.test(href)) return;
+      e.preventDefault();
+      veil.classList.add("is-in");
+      setTimeout(function () { location.href = href; }, 360);
+    });
+  }
+
   /* ---------- 5b. Loop guard (recover stalled autoplay-loop videos) ---------- */
   function initVideoLoopGuard() {
     var videos = document.querySelectorAll("video[autoplay][loop]");
@@ -391,6 +412,7 @@
     initDrawer();
     initSeekbar();
     initHeroCaptions();
+    initPageTransition();
     initVideoLoopGuard();
     initRail(".lineup__rail-wrap", ".lineup__rail");
     initRail(".yt-rail-wrap", ".yt-rail");
